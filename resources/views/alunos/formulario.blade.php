@@ -1,60 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div id="wrapper">
-        <div id="sidebar-wrapper">
-            <aside id="sidebar">
-                <ul id="sidemenu" class="sidebar-nav">
-                    <li>
-                        <a href="#">
-                            <span class="sidebar-icon"><i class="glyphicon glyphicon-user"></i></span>
-                            <span class="sidebar-title">@if (!Auth::guest())
-                                    <a href="{{ url('/alunos') }}">
-                                        Alunos
-                                    </a>
-                                @endif</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-2">
-                            <span class="sidebar-icon"><i class="fa fa-users"></i></span>
-                            <span class="sidebar-title">Management</span>
-                            <b class="caret"></b>
-                        </a>
-                        <ul id="submenu-2" class="panel-collapse collapse panel-switch" role="menu">
-                            <li><a href="#"><i class="fa fa-caret-right"></i>Users</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right"></i>Roles</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-3">
-                            <span class="sidebar-icon"><i class="fa fa-newspaper-o"></i></span>
-                            <span class="sidebar-title">Blog</span>
-                            <b class="caret"></b>
-                        </a>
-                        <ul id="submenu-3" class="panel-collapse collapse panel-switch" role="menu">
-                            <li><a href="#"><i class="fa fa-caret-right"></i>Posts</a></li>
-                            <li><a href="#"><i class="fa fa-caret-right"></i>Comments</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="sidebar-icon"><i class="fa fa-database"></i></span>
-                            <span class="sidebar-title">Data</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <span class="sidebar-icon"><i class="fa fa-terminal"></i></span>
-                            <span class="sidebar-title">Console</span>
-                        </a>
-                    </li>
-                </ul>
-            </aside>
-        </div>
-        <main id="page-content-wrapper" role="main">
-        </main>
-    </div>
+
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
@@ -111,7 +58,7 @@
                                 {!! Form::input('text', 'data_conversao', null, ['class' => 'form-control margem-top', 'autofocus', 'placeholder' => 'Data da Conversão' ])  !!}
                             </div>
                             <div class="col-md-4">
-                                {!! Form::input('text', 'batismo', null, ['class' => 'form-control margem-top', 'autofocus', 'placeholder' => 'Batismo nas águas' ])  !!}
+                                {!! Form::input('text', 'batismo', null, ['class' => 'form-control margem-top', 'autofocus', 'placeholder' => 'Batismo nas águas?' ])  !!}
                             </div>
                         </div>
                         <div class="row">

@@ -1,8 +1,13 @@
-@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');
+/*@import url('//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css');*/
+
+.imagem-home{
+	padding-top: 20px;
+}
 
 body {
 	background: lightgray;
 }
+
 
 .titulo-nav{
 	margin-left: 5px !important;

@@ -15,7 +15,7 @@
     <link href="{{ asset('css/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- <link href="{{ asset('css/css/form-elements.css') }}" rel="stylesheet"> -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link rel="shortcut icon" type="image/png" href="img/idb-icon.png"/>
+    <link rel="shortcut icon" type="image/png" href="/img/idb-icon.png"/>
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
@@ -51,7 +51,7 @@
                     </ul>
 
                    
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav navbar-right" style="padding-right: 20px;">
                        
                         @if (Auth::guest())
                             {{--<li><a href="{{ route('login') }}">Login</a></li>--}}
@@ -67,7 +67,7 @@
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            Sair
                                         </a>
 
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -81,7 +81,65 @@
                 </div>
             </div> 
         </nav>
-
+        @if (!Auth::guest())
+        <div id="wrapper">
+            <div id="sidebar-wrapper">
+                <aside id="sidebar">
+                    <ul id="sidemenu" class="sidebar-nav">
+                        <li>
+                            <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-1">
+                                <span class="sidebar-icon"><i class="glyphicon glyphicon-user"></i></span>
+                                <span class="sidebar-title">Alunos</span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul id="submenu-1" class="panel-collapse collapse panel-switch" role="menu">
+                                <li><a href="{{ url('/alunos') }}">@if (!Auth::guest())
+                                            <i class="fa fa-caret-right"></i>Curso Básico</a></li>
+                                @endif
+                                <li><a href="#"><i class="fa fa-caret-right"></i>Formação Plena</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-2">
+                                <span class="sidebar-icon"><i class="glyphicon glyphicon-pencil"></i></span>
+                                <span class="sidebar-title">Notas</span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul id="submenu-2" class="panel-collapse collapse panel-switch" role="menu">
+                                <li><a href="#"><i class="fa fa-caret-right"></i>Users</a></li>
+                                <li><a href="#"><i class="fa fa-caret-right"></i>Roles</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse" href="#submenu-3">
+                                <span class="sidebar-icon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                <span class="sidebar-title">Faltas</span>
+                                <b class="caret"></b>
+                            </a>
+                            <ul id="submenu-3" class="panel-collapse collapse panel-switch" role="menu">
+                                <li><a href="#"><i class="fa fa-caret-right"></i>Posts</a></li>
+                                <li><a href="#"><i class="fa fa-caret-right"></i>Comments</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="sidebar-icon"><i class="glyphicon glyphicon-file"></i></span>
+                                <span class="sidebar-title">Arquivos</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="sidebar-icon"><i class="glyphicon glyphicon-file"></i></span>
+                                {{--<span class="sidebar-title">Console</span>--}}
+                            </a>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
+            <main id="page-content-wrapper" role="main">
+            </main>
+        </div>
+        @endif
         @yield('content')
     </div>
 

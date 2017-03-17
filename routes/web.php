@@ -12,18 +12,21 @@
 */
 
 
-
-Route::group(['middleware' => 'web'], function (){
+Route::group(['middleware' => 'web'], function () {
     Route::get('/', function () {
-        return view('auth/login');
+        if (Auth::guest()) {
+            return view('auth/login');
+        } else {
+            return view('home');
+        }
     });
 
-    Route::get('alunos', 'AlunosController@index' );
-    Route::get('alunos/novo', 'AlunosController@novo' );
-    Route::get('alunos/{cliente}/editar', 'AlunosController@editar' );
-    Route::post('alunos/salvar', 'AlunosController@salvar' );
-    Route::patch('alunos/{aluno}', 'AlunosController@atualizar' );
-    Route::delete('alunos/{aluno}', 'AlunosController@deletar' );
+    Route::get('alunos', 'AlunosController@index');
+    Route::get('alunos/novo', 'AlunosController@novo');
+    Route::get('alunos/{cliente}/editar', 'AlunosController@editar');
+    Route::post('alunos/salvar', 'AlunosController@salvar');
+    Route::patch('alunos/{aluno}', 'AlunosController@atualizar');
+    Route::delete('alunos/{aluno}', 'AlunosController@deletar');
 
     Auth::routes();
 
