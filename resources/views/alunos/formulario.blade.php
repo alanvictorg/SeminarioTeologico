@@ -143,9 +143,18 @@
 
                         {!! Form::label('comunhao_igreja','Ele está em plena comunhão com a igreja e você como pastor o recomenda moral e espiritualmente ao ministério?') !!}
                         {!! Form::label('sim','Sim') !!}
-                        {!! Form::checkbox('comunhao_igreja', 'sim')  !!}
+                        {!! Form::radio('comunhao_igreja', 'sim')  !!}
                         {!! Form::label('nao','Não') !!}
-                        {!! Form::checkbox('comunhao_igreja', 'nao')  !!}
+                        {!! Form::radio('comunhao_igreja', 'nao')  !!}
+                        <div class="row">
+                            {!! Form::label('curso','Qual o curso?') !!}
+                        </div>
+                        {!! Form::label('basico','Curso Básico') !!}
+                        {!! Form::radio('curso', 'basico')  !!}
+                        {!! Form::label('formacao_plena','Formação Plena') !!}
+                        {!! Form::radio('curso', 'formacao_plena')  !!}
+
+
                         <div class="row">
                             {!! Form::submit('Salvar', ['class' => 'btn btn-primary margem-top']) !!}
                         </div>

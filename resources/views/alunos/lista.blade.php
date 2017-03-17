@@ -57,8 +57,8 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-2 panel-sis">
-                <div class="panel panel-default">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="panel panel-default panel-sis">
                     <div class="panel-heading" style="text-align: left;">Alunos
                         <a class="pull-right" href="{{ url('alunos/novo') }}">Novo Aluno</a>
                     </div>
