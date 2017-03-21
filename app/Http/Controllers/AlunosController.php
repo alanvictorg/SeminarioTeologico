@@ -9,13 +9,13 @@ use Illuminate\Support\Facades\Session;
 
 class AlunosController extends Controller
 {
-    public function index ()
+    public function index()
     {
         $alunos = Aluno::get();
         return view('alunos.lista', ['alunos' => $alunos]);
     }
 
-    public function novo ()
+    public function novo()
     {
         return view('alunos.formulario');
     }
@@ -42,14 +42,20 @@ class AlunosController extends Controller
 
         $aluno->update($request->all());
 
-        \Session::flash('mensagem_sucesso', 'Aluno autalizado com sucesso!');
+        \Session::flash('mensagem_sucesso', 'Aluno atualizado com sucesso!');
 
-        return Redirect::to('alunos/'.$aluno->id.'/editar');
+        return Redirect::to('alunos/' . $aluno->id . '/editar');
 
     }
 
-    public function deletar()
+    public function deletar($id)
     {
+        $aluno = Aluno::findOrfail($id);
 
+        $aluno->delete();
+
+        \Session::flash('mensagem_sucesso', 'Aluno deletado com sucesso!');
+
+        return Redirect::to('alunos');
     }
 }

@@ -93,7 +93,7 @@
                                 <b class="caret"></b>
                             </a>
                             <ul id="submenu-1" class="panel-collapse collapse panel-switch" role="menu">
-                                <li><a href="{{ url('/alunos') }}">@if (!Auth::guest())
+                                <li><a href="{{ url('alunos') }}">@if (!Auth::guest())
                                             <i class="fa fa-caret-right"></i>Curso Básico</a></li>
                                 @endif
                                 <li><a href="#"><i class="fa fa-caret-right"></i>Formação Plena</a></li>
@@ -122,15 +122,15 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{ url('disciplinas') }}">
                                 <span class="sidebar-icon"><i class="glyphicon glyphicon-file"></i></span>
-                                <span class="sidebar-title">Arquivos</span>
+                                <span class="sidebar-title">Disciplinas</span>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="{{ url('cursos') }}">
                                 <span class="sidebar-icon"><i class="glyphicon glyphicon-file"></i></span>
-                                {{--<span class="sidebar-title">Console</span>--}}
+                                <span class="sidebar-title">Cursos</span>
                             </a>
                         </li>
                     </ul>
@@ -145,5 +145,6 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/script.js') }}"></script>
 </body>
 </html>

@@ -6,8 +6,8 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default panel-sis">
-                    <div class="panel-heading" style="text-align: left;">Alunos
-                        <a class="pull-right" href="{{ url('alunos/novo') }}">Novo Aluno</a>
+                    <div class="panel-heading" style="text-align: left;">Disciplinas
+                        <a class="pull-right" href="{{ url('disciplinas/novo') }}">Nova Disciplina</a>
                     </div>
 
                     <div class="panel-body">
@@ -16,15 +16,23 @@
                         @endif
 
                         <table class="table">
+                            <thead>
+                                    <td>Descrição</td>
+                                    <td>Curso</td>
+
+                            </thead>
                             <tbody>
-                            @foreach($alunos as $aluno)
+
+                            @foreach($disciplinas as $disciplina)
                                 <tr>
-                                    <td>{{$aluno->nome}}</td>
+                                    <td>{{$disciplina->descricao}}</td>
+                                    <td>{{$disciplina->curso}}</td>
                                     <td>
-                                        <a href="/alunos/{{ $aluno->id }}/editar"
-                                           class="btn btn-default btn-sm">Editar</a>
-                                        {!! Form::open(['method' => 'DELETE', 'url' => '/alunos/'.$aluno->id, 'style' => 'display: inline;']) !!}
-                                        <button type="submit" onClick="return confirm('Deseja deletar o registro?')" href="/alunos/{{ $aluno->id }}"
+                                        {{--<a href="/disciplinas/{{ $disciplina->id }}/editar"--}}
+                                           {{--class="btn btn-default btn-sm">Editar</a>--}}
+                                        {!! Form::open(['method' => 'DELETE', 'url' => '/disciplinas/'.$disciplina->id, 'style' => 'display: inline;']) !!}
+                                        <button type="submit" onClick="return confirm('Deseja deletar o registro?')"
+                                                href="/alunos/{{ $disciplina->id }}"
                                                 class="btn btn-default btn-sm">Excluir
                                         </button>
                                         {!! Form::close()    !!}

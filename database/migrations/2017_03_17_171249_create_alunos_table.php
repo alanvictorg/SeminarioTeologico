@@ -40,6 +40,13 @@ class CreateAlunosTable extends Migration
             $table->date('updated_at');
             $table->date('created_at');
 
+//            $table->integer('curso_id')->unsigned();
+//
+//            $table->foreign('curso_id')->
+//            references('id')->
+//            on('cursos')->
+//            onDelete('cascade');
+
         });
     }
 

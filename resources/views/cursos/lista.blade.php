@@ -6,8 +6,8 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default panel-sis">
-                    <div class="panel-heading" style="text-align: left;">Alunos
-                        <a class="pull-right" href="{{ url('alunos/novo') }}">Novo Aluno</a>
+                    <div class="panel-heading" style="text-align: left;">Cursos
+                        <a class="pull-right" href="{{ url('cursos/novo') }}">Novo Curso</a>
                     </div>
 
                     <div class="panel-body">
@@ -16,18 +16,26 @@
                         @endif
 
                         <table class="table">
+                            <thead>
+                            <td>Descrição</td>
+
+
+                            </thead>
                             <tbody>
-                            @foreach($alunos as $aluno)
+
+                            @foreach($cursos as $curso)
                                 <tr>
-                                    <td>{{$aluno->nome}}</td>
+                                    <td>{{$curso->descricao}}</td>
+
                                     <td>
-                                        <a href="/alunos/{{ $aluno->id }}/editar"
+                                        <a href=""
                                            class="btn btn-default btn-sm">Editar</a>
-                                        {!! Form::open(['method' => 'DELETE', 'url' => '/alunos/'.$aluno->id, 'style' => 'display: inline;']) !!}
-                                        <button type="submit" onClick="return confirm('Deseja deletar o registro?')" href="/alunos/{{ $aluno->id }}"
+                                        {{--{!! Form::open(['method' => 'DELETE', 'url' => '/alunos/'.$disciplina->id, 'style' => 'display: inline;']) !!}--}}
+                                        <button type="submit" onClick="return confirm('Deseja deletar o registro?')"
+                                                href=""
                                                 class="btn btn-default btn-sm">Excluir
                                         </button>
-                                        {!! Form::close()    !!}
+                                        {{--{!! Form::close()    !!}--}}
                                     </td>
                                 </tr>
                             @endforeach
