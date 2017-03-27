@@ -13,6 +13,15 @@ class CreateAlunosTable extends Migration
      */
     public function up()
     {
+
+        Schema::create('cursos', function(Blueprint $table){
+            $table->increments('id');
+            $table->string('descricao');
+            $table->date('updated_at');
+            $table->date('created_at');
+
+        });
+
         Schema::create('alunos', function (Blueprint $table){
             $table->increments('id');
             $table->string('nome');
@@ -36,7 +45,6 @@ class CreateAlunosTable extends Migration
             $table->string('tel_pastor');
             $table->string('chamado_ministerial');
             $table->string('comunhao_igreja');
-            $table->string('curso');
             $table->date('updated_at');
             $table->date('created_at');
 
@@ -48,6 +56,10 @@ class CreateAlunosTable extends Migration
 //            onDelete('cascade');
 
         });
+
+
+
+
     }
 
     /**
@@ -58,5 +70,6 @@ class CreateAlunosTable extends Migration
     public function down()
     {
         Schema::dropIfExists('alunos');
+
     }
 }

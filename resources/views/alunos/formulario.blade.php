@@ -84,9 +84,9 @@
 
                         {!! Form::label('chamado_ministerial','O referido irmão tem demonstrado chamado ministerial, através de sua atuação na Igreja Local?') !!}
                         {!! Form::label('sim','Sim') !!}
-                        {!! Form::checkbox('chamado_ministerial', 'sim')  !!}
+                        {!! Form::radio('chamado_ministerial', 'sim')  !!}
                         {!! Form::label('nao','Não') !!}
-                        {!! Form::checkbox('chamado_ministerial', 'nao')  !!}
+                        {!! Form::radio('chamado_ministerial', 'nao')  !!}
 
                         {!! Form::label('comunhao_igreja','Ele está em plena comunhão com a igreja e você como pastor o recomenda moral e espiritualmente ao ministério?') !!}
                         {!! Form::label('sim','Sim') !!}
@@ -94,12 +94,12 @@
                         {!! Form::label('nao','Não') !!}
                         {!! Form::radio('comunhao_igreja', 'nao')  !!}
                         <div class="row">
-                            {!! Form::label('curso','Qual o curso?') !!}
+                            {!! Form::label('curso_id','Qual o curso?') !!}
                         </div>
-                        {!! Form::label('basico','Curso Básico') !!}
-                        {!! Form::radio('curso', 'basico')  !!}
-                        {!! Form::label('formacao_plena','Formação Plena') !!}
-                        {!! Form::radio('curso', 'formacao_plena')  !!}
+                        @foreach($cursos as $curso)
+                            {!! Form::label('curso_id', $curso->descricao) !!}
+                            {!! Form::radio('curso_id', $curso->id)  !!}
+                        @endforeach
 
 
                         <div class="row">

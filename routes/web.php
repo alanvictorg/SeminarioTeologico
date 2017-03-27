@@ -40,6 +40,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('cursos/{curso}/editar', 'CursosController@editar');
     Route::post('cursos/salvar', 'CursosController@salvar');
 
+
+
     Auth::routes();
 
     Route::get('/home', 'HomeController@index');

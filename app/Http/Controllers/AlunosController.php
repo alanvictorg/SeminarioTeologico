@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Aluno;
+use App\Curso;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -17,7 +18,8 @@ class AlunosController extends Controller
 
     public function novo()
     {
-        return view('alunos.formulario');
+        $cursos = Curso::get();
+        return view('alunos.formulario', ['cursos' => $cursos]);
     }
 
     public function salvar(Request $request)
