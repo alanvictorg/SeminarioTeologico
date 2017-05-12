@@ -12,8 +12,9 @@ class AlunosController extends Controller
 {
     public function index()
     {
+        $cursos = Curso::get();
         $alunos = Aluno::get();
-        return view('alunos.lista', ['alunos' => $alunos]);
+        return view('alunos.lista', ['alunos' => $alunos, 'cursos' => $cursos]);
     }
 
     public function novo()

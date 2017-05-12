@@ -39,8 +39,12 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('cursos/novo', 'CursosController@novo');
     Route::get('cursos/{curso}/editar', 'CursosController@editar');
     Route::post('cursos/salvar', 'CursosController@salvar');
+    Route::delete('cursos/{curso}', 'CursosController@deletar');
 
-
+    Route::get('turmas', 'TurmasController@index');
+    Route::get('turmas/novo', 'TurmasController@novo');
+    Route::post('turmas/salvar', 'TurmasController@salvar');
+    Route::delete('turmas/{turma}', 'TurmasController@deletar');
 
     Auth::routes();
 

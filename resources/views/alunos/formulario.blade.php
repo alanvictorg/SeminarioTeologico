@@ -93,13 +93,13 @@
                         {!! Form::radio('comunhao_igreja', 'sim')  !!}
                         {!! Form::label('nao','Não') !!}
                         {!! Form::radio('comunhao_igreja', 'nao')  !!}
-                        <div class="row">
-                            {!! Form::label('curso_id','Qual o curso?') !!}
-                        </div>
-                        @foreach($cursos as $curso)
-                            {!! Form::label('curso_id', $curso->descricao) !!}
-                            {!! Form::radio('curso_id', $curso->id)  !!}
-                        @endforeach
+                        {{--<div class="row">--}}
+                            {{--{!! Form::label('curso_id','Qual o curso?') !!}--}}
+                        {{--</div>--}}
+                        {{--@foreach($cursos as $curso)--}}
+                            {{--{!! Form::label('curso_id', $curso->descricao) !!}--}}
+                            {{--{!! Form::radio('curso_id', $curso->id)  !!}--}}
+                        {{--@endforeach--}}
 
 
                         <div class="row">

@@ -17,25 +17,25 @@
 
                         <table class="table">
                             <thead>
-                            <td>Descrição</td>
-
+                            <td>Nome</td>
+                            <td>Opções</td>
 
                             </thead>
                             <tbody>
 
                             @foreach($cursos as $curso)
                                 <tr>
-                                    <td>{{$curso->descricao}}</td>
+                                    <td>{{$curso->nome}}</td>
 
                                     <td>
                                         <a href=""
                                            class="btn btn-default btn-sm">Editar</a>
-                                        {{--{!! Form::open(['method' => 'DELETE', 'url' => '/alunos/'.$disciplina->id, 'style' => 'display: inline;']) !!}--}}
+                                        {!! Form::open(['method' => 'DELETE', 'url' => '/cursos/'.$curso->id, 'style' => 'display: inline;']) !!}
                                         <button type="submit" onClick="return confirm('Deseja deletar o registro?')"
                                                 href=""
                                                 class="btn btn-default btn-sm">Excluir
                                         </button>
-                                        {{--{!! Form::close()    !!}--}}
+                                        {!! Form::close()    !!}
                                     </td>
                                 </tr>
                             @endforeach

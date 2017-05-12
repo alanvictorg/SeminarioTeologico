@@ -7,10 +7,16 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'CreateAlunosTable' => $baseDir . '/database/migrations/2017_03_17_171249_create_alunos_table.php',
+    'CreateAulasTable' => $baseDir . '/database/migrations/2017_05_10_170137_create_aulas_table.php',
+    'CreateAvaliacaoTable' => $baseDir . '/database/migrations/2017_05_10_162157_create_avaliacao_table.php',
+    'CreateCursoDisciplinaTable' => $baseDir . '/database/migrations/2017_05_11_153451_create_curso_disciplina_table.php',
     'CreateCursosTable' => $baseDir . '/database/migrations/2017_03_20_192859_create_cursos_table.php',
-    'CreateDisciplinaAlunoCurso' => $baseDir . '/database/migrations/2017_03_20_194647_create_disciplinaAlunoCurso.php',
     'CreateDisciplinasTable' => $baseDir . '/database/migrations/2017_03_20_191338_create_disciplinas_table.php',
+    'CreateMatriculaTable' => $baseDir . '/database/migrations/2017_05_11_154448_create_matricula_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
+    'CreateProfessorDisciplina' => $baseDir . '/database/migrations/2017_05_10_053546_create_professor_disciplina.php',
+    'CreateProfessorTable' => $baseDir . '/database/migrations/2017_05_10_052854_create_professor_table.php',
+    'CreateTurmaTable' => $baseDir . '/database/migrations/2017_05_10_165406_create_turma_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',

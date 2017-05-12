@@ -6,8 +6,8 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default panel-sis">
-                    <div class="panel-heading" style="text-align: left;">Alunos
-                        <a class="pull-right" href="{{ url('alunos/novo') }}">Novo Aluno</a>
+                    <div class="panel-heading" style="text-align: left;">Turmas
+                        <a class="pull-right" href="{{ url('turmas/novo') }}">Nova Turma</a>
                     </div>
 
                     <div class="panel-body">
@@ -16,21 +16,24 @@
                         @endif
 
                         <table class="table">
+                            <thead>
+                            <td>Turma</td>
+                            <td>Curso</td>
+                            <td>Opções</td>
+
+                            </thead>
                             <tbody>
-                            <tr>
-                                <td>Nome</td>
-                                <td>RG</td>
-                                <td>Opções</td>
-                            </tr>
-                            @foreach($alunos as $aluno)
+
+                            @foreach($turmas as $turma)
                                 <tr>
-                                    <td>{{$aluno->nome}}</td>
-                                    <td>{{$aluno->rg}}</td>
+                                    <td>{{$turma->codigo}}</td>
+                                    <td>{{$turma}}</td>
                                     <td>
-                                        <a href="/alunos/{{ $aluno->id }}/editar"
+                                        <a href=""
                                            class="btn btn-default btn-sm">Editar</a>
-                                        {!! Form::open(['method' => 'DELETE', 'url' => '/alunos/'.$aluno->id, 'style' => 'display: inline;']) !!}
-                                        <button type="submit" onClick="return confirm('Deseja deletar o registro?')" href="/alunos/{{ $aluno->id }}"
+                                        {!! Form::open(['method' => 'DELETE', 'url' => '/turmas/'.$turma->id, 'style' => 'display: inline;']) !!}
+                                        <button type="submit" onClick="return confirm('Deseja deletar o registro?')"
+                                                href=""
                                                 class="btn btn-default btn-sm">Excluir
                                         </button>
                                         {!! Form::close()    !!}

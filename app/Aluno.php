@@ -30,7 +30,11 @@ class Aluno extends Model
         'chamado_ministerial',
         'comunhao_igreja',
         'curso'
-        
 
     ];
+
+    public function turmas()
+    {
+        return $this->belongsToMany('App\Aluno');
+    }
 }

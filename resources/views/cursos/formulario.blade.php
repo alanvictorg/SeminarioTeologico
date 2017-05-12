@@ -7,7 +7,7 @@
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default panel-sis">
                     <div class="panel-heading" style="text-align: left;">Informe os dados do Aluno
-                        <a class="pull-right" href="{{ url("cursos") }}">Listagem Disciplinas</a>
+                        <a class="pull-right" href="{{ url("cursos") }}">Listagem Cursos</a>
                     </div>
                     <div class="panel-body">
                         @if(Session::has('mensagem_sucesso'))
@@ -20,8 +20,8 @@
                         {!! Form::open(['url' => 'cursos/salvar']) !!}
                         {{--@endif--}}
 
-                        {!! Form::input('text', 'descricao', null, ['class' => 'form-control', 'autofocus', 'placeholder' => 'Nome' ])  !!}
-
+                        {!! Form::input('text', 'nome', null, ['class' => 'form-control', 'autofocus', 'placeholder' => 'Nome' ])  !!}
+                        {!! Form::input('text', 'descricao', null, ['class' => 'form-control', 'autofocus', 'placeholder' => 'Descrição' ])  !!}
                         <div class="row">
                             {!! Form::submit('Salvar', ['class' => 'btn btn-primary margem-top']) !!}
                         </div>

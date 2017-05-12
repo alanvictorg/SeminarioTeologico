@@ -16,8 +16,9 @@ class DisciplinasController extends Controller
      */
     public function index()
     {
+        $cursos = Curso::get();
         $disciplinas = Disciplina::get();
-        return view('disciplinas.lista', ['disciplinas' => $disciplinas]);
+        return view('disciplinas.lista', ['disciplinas' => $disciplinas, 'cursos' => $cursos]);
     }
 
     /**

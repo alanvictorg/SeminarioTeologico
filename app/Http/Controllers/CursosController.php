@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Curso;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 
 class CursosController extends Controller
 {
@@ -17,7 +19,8 @@ class CursosController extends Controller
 
     public function novo()
     {
-        return view('cursos.formulario');
+        $cursos = Curso::get();
+        return view('cursos.formulario', ['cursos' => $cursos]);
     }
 
     public function salvar(Request $request)
@@ -28,5 +31,16 @@ class CursosController extends Controller
         \Session::flash('mensagem_sucesso', 'Curso cadastrado com sucesso!');
 
         return Redirect::to('cursos/novo');
+    }
+
+    public function deletar($id)
+    {
+        $curso = Curso::findOrfail($id);
+
+        $curso->delete();
+
+        \Session::flash('mensagem_sucesso', 'Curso deletado!');
+
+        return Redirect::to('cursos');
     }
 }

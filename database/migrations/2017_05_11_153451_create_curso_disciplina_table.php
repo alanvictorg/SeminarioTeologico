@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
-class CreateDisciplinaAlunoCurso extends Migration
+class CreateCursoDisciplinaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,7 @@ class CreateDisciplinaAlunoCurso extends Migration
      */
     public function up()
     {
-        Schema::create('disciplinaAlunoCurso', function (Blueprint $table) {
-            $table->integer('aluno_id')->unsigned();
-            $table->foreign('aluno_id')->
-            references('id')->
-            on('alunos');
-
+        Schema::create ('curso_disciplina', function(Blueprint $table){
             $table->integer('curso_id')->unsigned();
             $table->foreign('curso_id')->
             references('id')->
@@ -29,12 +24,10 @@ class CreateDisciplinaAlunoCurso extends Migration
             references('id')->
             on('disciplinas');
 
-            $table->date('updated_at');
             $table->date('created_at');
+            $table->date('updated_at');
+
         });
-
-
-
     }
 
     /**
@@ -44,6 +37,6 @@ class CreateDisciplinaAlunoCurso extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('disciplinaAlunoCurso');
+        //
     }
 }
