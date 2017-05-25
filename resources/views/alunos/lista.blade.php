@@ -29,6 +29,8 @@
                                     <td>
                                         <a href="/alunos/{{ $aluno->id }}/editar"
                                            class="btn btn-default btn-sm">Editar</a>
+                                        <a href="/alunos/{{ $aluno->id }}/historico"
+                                           class="btn btn-default btn-sm">Gerar Histórico</a>
                                         {!! Form::open(['method' => 'DELETE', 'url' => '/alunos/'.$aluno->id, 'style' => 'display: inline;']) !!}
                                         <button type="submit" onClick="return confirm('Deseja deletar o registro?')" href="/alunos/{{ $aluno->id }}"
                                                 class="btn btn-default btn-sm">Excluir

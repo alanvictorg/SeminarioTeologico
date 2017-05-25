@@ -13,25 +13,23 @@ class CreateAvaliacaoTable extends Migration
      */
     public function up()
     {
-        Schema::create('avaliacao', function (Blueprint $table){
+        Schema::create('avaliacoes', function (Blueprint $table){
             $table->increments('id');
-
-            $table->integer('professor_id')->unsigned();
-            $table->foreign('professor_id')->
-                references('id')->
-                on('professores');
 
             $table->integer('aluno_id')->unsigned();
             $table->foreign('aluno_id')->
                 references('id')->
                 on('alunos');
 
-            $table->integer('disciplina_id')->unsigned();
-            $table->foreign('disciplina_id')->
+            $table->integer('turma_id')->unsigned();
+            $table->foreign('turma_id')->
                 references('id')->
-                on('disciplinas');
+                on('turmas');
 
-            $table->decimal('nota');
+            $table->decimal('nota1')->nullable();
+            $table->decimal('nota2')->nullable();
+            $table->decimal('nota3')->nullable();
+            $table->decimal('media')->nullable();
             $table->date('created_at');
             $table->date('updated_at');
 
@@ -46,6 +44,6 @@ class CreateAvaliacaoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('avaliacao');
+        Schema::dropIfExists('avaliacoes');
     }
 }

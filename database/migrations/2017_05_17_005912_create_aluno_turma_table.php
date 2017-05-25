@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCursoDisciplinaTable extends Migration
+class CreateAlunoTurmaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,19 @@ class CreateCursoDisciplinaTable extends Migration
      */
     public function up()
     {
-        Schema::create ('curso_disciplina', function(Blueprint $table){
-            $table->integer('curso_id')->unsigned();
-            $table->foreign('curso_id')->
+        Schema::create('aluno_turma', function(Blueprint $table){
+            $table->integer('aluno_id')->unsigned();
+            $table->foreign('aluno_id')->
             references('id')->
-            on('cursos');
+            on('alunos');
 
-            $table->integer('disciplina_id')->unsigned();
-            $table->foreign('disciplina_id')->
+            $table->integer('turma_id')->unsigned();
+            $table->foreign('turma_id')->
             references('id')->
-            on('disciplinas');
+            on('turmas');
 
-            $table->date('created_at');
             $table->date('updated_at');
-
+            $table->date('created_at');
         });
     }
 
@@ -37,6 +36,6 @@ class CreateCursoDisciplinaTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('aluno_turma');
     }
 }

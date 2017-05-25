@@ -24,6 +24,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('alunos', 'AlunosController@index');
     Route::get('alunos/novo', 'AlunosController@novo');
     Route::get('alunos/{aluno}/editar', 'AlunosController@editar');
+    Route::get('alunos/{aluno}/historico', 'AlunosController@historico');
     Route::post('alunos/salvar', 'AlunosController@salvar');
     Route::patch('alunos/{aluno}', 'AlunosController@atualizar');
     Route::delete('alunos/{aluno}', 'AlunosController@deletar');
@@ -43,8 +44,11 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('turmas', 'TurmasController@index');
     Route::get('turmas/novo', 'TurmasController@novo');
+    Route::get('turmas/{turma}/visualizar', 'TurmasController@visualizar');
     Route::post('turmas/salvar', 'TurmasController@salvar');
+    Route::post('turmas/salvarnotas', 'TurmasController@salvarnotas');
     Route::delete('turmas/{turma}', 'TurmasController@deletar');
+
 
     Auth::routes();
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Aluno;
 use App\Curso;
+use App\Turma;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -37,6 +38,19 @@ class AlunosController extends Controller
     {
         $aluno = Aluno::findOrfail($id);
         return view('alunos.formulario', ['aluno' => $aluno]);
+    }
+
+    public function historico($id)
+    {
+        $turmas = new Turma();
+        $aluno = Aluno::findOrfail($id);
+        $turmas = $aluno->turmas;
+
+        foreach ($turmas as $turma){
+            $id = $turma->curso_id;
+        }
+        $curso = Curso::find($id);
+        return view('alunos.historico', ['aluno' => $aluno, 'turma' => $curso]);
     }
 
     public function atualizar($id, Request $request)

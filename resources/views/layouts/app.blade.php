@@ -97,17 +97,22 @@
 
                         </li>
                         <li>
-                            <a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse"
-                               href="#submenu-1">
+                            <a href="{{ url('cursos') }}">
                                 <span class="sidebar-icon"><i class="glyphicon glyphicon-file"></i></span>
                                 <span class="sidebar-title">Cursos</span>
-                                <b class="caret"></b>
+
                             </a>
-                            <ul id="submenu-1" class="panel-collapse collapse panel-switch" role="menu">
-                                <li><a href="{{ url('cursos') }}"><i class="fa fa-caret-right"></i>Cursos</a></li>
-                                <li><a href="{{ url('turmas') }}"><i class="fa fa-caret-right"></i>Turmas</a></li>
-                            </ul>
+
                         </li>
+
+                        <li>
+                            <a href="{{ url('turmas') }}">
+                                <span class="sidebar-icon"><i class="glyphicon glyphicon-user"></i></span>
+                                <span class="sidebar-title">Turmas</span>
+                            </a>
+
+                        </li>
+
                         {{--<li>--}}
                         {{--<a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse"--}}
                         {{--href="#submenu-3">--}}
@@ -120,13 +125,13 @@
                         {{--<li><a href="#"><i class="fa fa-caret-right"></i>Comments</a></li>--}}
                         {{--</ul>--}}
                         {{--</li>--}}
-                        <li>
-                        <a href="{{ url('matriculas') }}">
-                        <span class="sidebar-icon"><i class="glyphicon glyphicon-file"></i></span>
-                        <span class="sidebar-title">Matricular</span>
-                        </a>
-                        </li>
-                        <li>
+                        {{--<li>--}}
+                        {{--<a href="{{ url('matriculas') }}">--}}
+                        {{--<span class="sidebar-icon"><i class="glyphicon glyphicon-file"></i></span>--}}
+                        {{--<span class="sidebar-title">Matricular aluno</span>--}}
+                        {{--</a>--}}
+                        {{--</li>--}}
+                        {{--<li>--}}
                         {{--<a href="{{ url('cursos') }}">--}}
                         {{--<span class="sidebar-icon"><i class="glyphicon glyphicon-file"></i></span>--}}
                         {{--<span class="sidebar-title">Cursos</span>--}}

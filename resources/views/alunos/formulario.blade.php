@@ -24,7 +24,7 @@
                         {!! Form::input('text', 'filiacao', null, ['class' => 'form-control margem-top', 'autofocus', 'placeholder' => 'Filiação' ])  !!}
                         <div class="row">
                             <div class="col-lg-6">
-                                {!! Form::input('text', 'dt_nasc', null, ['class' => 'form-control margem-top', 'autofocus', 'placeholder' => 'Data de Nascimento' ])  !!}
+                                {!! Form::input('date', 'dt_nasc', null, ['class' => 'form-control margem-top', 'autofocus', 'placeholder' => 'Data de Nascimento' ])  !!}
                             </div>
                             <div class="col-lg-6">
                                 {!! Form::input('text', 'natural', null, ['class' => 'form-control margem-top', 'autofocus', 'placeholder' => 'Naturalidade' ])  !!}

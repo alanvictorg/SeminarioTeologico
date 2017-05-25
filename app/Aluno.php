@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Aluno extends Model
 {
     protected $fillable = [
-        'curso_id',
         'nome',
         'filiacao',
         'dt_nasc',
@@ -29,12 +28,17 @@ class Aluno extends Model
         'tel_pastor',
         'chamado_ministerial',
         'comunhao_igreja',
-        'curso'
+
 
     ];
 
     public function turmas()
     {
-        return $this->belongsToMany('App\Aluno');
+        return $this->belongsToMany('App\Turma', 'aluno_turma', 'aluno_id', 'turma_id');
+    }
+
+    public function avaliacoes()
+    {
+        return $this->hasMany('App\Avaliacoe');
     }
 }
