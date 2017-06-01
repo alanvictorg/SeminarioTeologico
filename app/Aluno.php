@@ -9,6 +9,7 @@ class Aluno extends Model
     protected $fillable = [
         'nome',
         'filiacao',
+        'matricula',
         'dt_nasc',
         'natural',
         'cpf',

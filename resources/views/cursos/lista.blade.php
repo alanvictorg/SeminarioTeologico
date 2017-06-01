@@ -16,31 +16,31 @@
                         @endif
 
                         <table class="table">
-                            <thead>
-                            <td>Nome</td>
-                            <td>Opções</td>
+                                <thead>
+                                <td>Nome</td>
+                                <td>Opções</td>
 
-                            </thead>
-                            <tbody>
+                                </thead>
+                                <tbody>
 
-                            @foreach($cursos as $curso)
-                                <tr>
-                                    <td>{{$curso->nome}}</td>
+                                @foreach($cursos as $curso)
+                                    <tr>
+                                        <td>{{$curso->nome}}</td>
 
-                                    <td>
-                                        <a href=""
-                                           class="btn btn-default btn-sm">Editar</a>
-                                        {!! Form::open(['method' => 'DELETE', 'url' => '/cursos/'.$curso->id, 'style' => 'display: inline;']) !!}
-                                        <button type="submit" onClick="return confirm('Deseja deletar o registro?')"
-                                                href=""
-                                                class="btn btn-default btn-sm">Excluir
-                                        </button>
-                                        {!! Form::close()    !!}
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+                                        <td>
+                                            <a href=""
+                                               class="btn btn-default btn-sm">Editar</a>
+                                            {!! Form::open(['method' => 'DELETE', 'url' => '/cursos/'.$curso->id, 'style' => 'display: inline;']) !!}
+                                            <button type="submit" onClick="return confirm('Deseja deletar o registro?')"
+                                                    href=""
+                                                    class="btn btn-default btn-sm">Excluir
+                                            </button>
+                                            {!! Form::close()    !!}
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
                     </div>
                 </div>
             </div>

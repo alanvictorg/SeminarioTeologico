@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default panel-sis">
-                    <div class="panel-heading" style="text-align: left;">
+                    <div class="panel-heading" style="text-align: left;">Informe os dados da turma
                         <a class="pull-right" href="{{ url("turmas") }}">Listagem Turmas</a>
                     </div>
                     <div class="panel-body">
@@ -19,10 +19,12 @@
                         {{--@else--}}
                         {!! Form::open(['url' => 'turmas/salvar']) !!}
                         {{--@endif--}}
-
-                        {!! Form::input('text', 'codigo', null, ['class' => 'form-control', 'autofocus', 'placeholder' => 'Código' ])  !!}
-
                         <div class="row">
+                            {!! Form::label('codigo','Qual o nome da turma?') !!}
+                        </div>
+                        {!! Form::input('text', 'codigo', null, ['class' => 'form-control', 'autofocus','style' => 'text-align: center;' ])  !!}
+
+                        <div class="row perguntas">
                             {!! Form::label('turno','Qual o turno?') !!}
                         </div>
 
@@ -35,13 +37,40 @@
                         {!! Form::label('turno', 'Noite') !!}
                         {!! Form::radio('turno', 'noite')  !!}
 
+                        <div class="row perguntas">
+                            {!! Form::label('credito','Quantos créditos possui?') !!}
+                        </div>
+                        {!! Form::input('text', 'credito',null, ['class' => 'form-control', 'autofocus', 'style' => ' text-align: center;' ] ) !!}
 
-                        <div class="row">
+                        <div class="row perguntas">
+                            {!! Form::label('hr_aula','Quantas horas/aula?') !!}
+                        </div>
+                        {!! Form::input('text', 'hr_aula',null, ['class' => 'form-control', 'autofocus', 'style' => ' text-align: center;' ] ) !!}
+
+
+                        <div class="row perguntas">
+                            {!! Form::label('ano','Qual o ano/semestre?') !!}
+                        </div>
+                        {!! Form::input('text', 'ano',null, ['class' => 'form-control', 'autofocus', 'style' => ' text-align: center;' ] ) !!}
+
+
+                        <div class="row perguntas">
                             {!! Form::label('curso_id','Qual o curso?') !!}
                         </div>
                         @foreach($cursos as $curso)
                             {!! Form::label('curso_id', $curso->nome) !!}
                             {!! Form::radio('curso_id', $curso->id)  !!}
+                        @endforeach
+
+                        <div class="row perguntas">
+                            {!! Form::label('aluno_id','Quais alunos deseja matricular nesta turma?') !!}
+                        </div>
+
+                        @foreach($alunos as $aluno)
+                            <div class="row">
+                                {!! Form::label('alunos[]', $aluno->nome) !!}
+                                {!! Form::checkbox('alunos[]', $aluno->id)  !!}
+                            </div>
                         @endforeach
 
 

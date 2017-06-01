@@ -21,6 +21,7 @@
                         @endif
 
                         {!! Form::input('text', 'nome', null, ['class' => 'form-control', 'autofocus', 'placeholder' => 'Nome' ])  !!}
+
                         {!! Form::input('text', 'filiacao', null, ['class' => 'form-control margem-top', 'autofocus', 'placeholder' => 'Filiação' ])  !!}
                         <div class="row">
                             <div class="col-lg-6">
@@ -31,10 +32,13 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                                 {!! Form::input('text', 'cpf', null, ['class' => 'form-control margem-top', 'autofocus', 'placeholder' => 'CPF' ])  !!}
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
+                                {!! Form::input('text', 'matricula', null, ['class' => 'form-control margem-top', 'autofocus', 'placeholder' => 'Matrícula' ])  !!}
+                            </div>
+                            <div class="col-md-4">
                                 {!! Form::input('text', 'rg', null, ['class' => 'form-control margem-top', 'autofocus', 'placeholder' => 'RG' ])  !!}
                             </div>
                         </div>
@@ -94,11 +98,11 @@
                         {!! Form::label('nao','Não') !!}
                         {!! Form::radio('comunhao_igreja', 'nao')  !!}
                         {{--<div class="row">--}}
-                            {{--{!! Form::label('curso_id','Qual o curso?') !!}--}}
+                        {{--{!! Form::label('curso_id','Qual o curso?') !!}--}}
                         {{--</div>--}}
                         {{--@foreach($cursos as $curso)--}}
-                            {{--{!! Form::label('curso_id', $curso->descricao) !!}--}}
-                            {{--{!! Form::radio('curso_id', $curso->id)  !!}--}}
+                        {{--{!! Form::label('curso_id', $curso->descricao) !!}--}}
+                        {{--{!! Form::radio('curso_id', $curso->id)  !!}--}}
                         {{--@endforeach--}}
 
 

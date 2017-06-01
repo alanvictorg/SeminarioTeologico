@@ -24,14 +24,14 @@
 
                         <div class="row">
                             <div class="col-xs-6 historico"> Naturalidade: {{$aluno->natural}}</div>
-                            <div class="col-xs-6 historico">Nacionalidade: {{$aluno->nacional}}</div>
+                            <div class="col-xs-6 historico">Data de Nascimento: {{$aluno->dt_nasc}}</div>
                         </div>
                         <div class="row">
                             <div class="col-xs-6 historico"> Filiação: {{$aluno->filiacao}}</div>
-                            <div class="col-xs-6 historico">Data de Nascimento: {{$aluno->dt_nasc}}</div>
                         </div>
                         <div class="row historico">
                             <div class="col-xs-6 historico"> Curso: {{$turma->nome}}</div>
+                            <div class="col-xs-6 historico"> Matrícula: {{$aluno->matricula}}</div>
                         </div>
 
                         <div class="row">
@@ -41,16 +41,17 @@
                             <div class="col-md-2">MÉDIA</div>
                             <div class="col-md-1">ANO</div>
                         </div>
+                        <?php $key = 0; ?>
                         @foreach($aluno->turmas as $turma)
 
                             <div class="row">
                                 <div class="col-md-1">{{$turma->credito}}</div>
                                 <div class="col-md-1">{{$turma->hr_aula}}</div>
                                 <div class="col-md-6">{{$turma->codigo}}</div>
-                                <div class="col-md-2">6</div>
+                                <div class="col-md-2">{{$aluno->avaliacoes[$key]->media}}</div>
                                 <div class="col-md-1">{{$turma->ano}}</div>
                             </div>
-
+                            <?php $key++; ?>
                         @endforeach
 
 

@@ -16,32 +16,33 @@
                         @endif
 
                         <table class="table">
-                            <thead>
-                            <td>Turma</td>
-                            <td>Curso</td>
-                            <td>Opções</td>
+                                <thead>
+                                <td>Turma</td>
+                                <td>Curso</td>
+                                <td>Opções</td>
 
-                            </thead>
-                            <tbody>
+                                </thead>
+                                <tbody>
 
-                            @foreach($turmas as $turma)
-                                <tr>
-                                    <td>{{$turma->codigo}}</td>
-                                    <td>{{$turma}}</td>
-                                    <td>
-                                        <a href=""
-                                           class="btn btn-default btn-sm">Editar</a>
-                                        {!! Form::open(['method' => 'DELETE', 'url' => '/turmas/'.$turma->id, 'style' => 'display: inline;']) !!}
-                                        <button type="submit" onClick="return confirm('Deseja deletar o registro?')"
-                                                href=""
-                                                class="btn btn-default btn-sm">Excluir
-                                        </button>
-                                        {!! Form::close()    !!}
-                                    </td>
-                                </tr>
-                            @endforeach
-                            </tbody>
-                        </table>
+                                @foreach($turmas as $turma)
+                                    <tr>
+                                        <td>{{$turma->codigo}}</td>
+                                        <td>{{$turma->cursos->nome}}</td>
+                                        <td>
+                                            <a href="/turmas/{{ $turma->id }}/visualizar"
+                                               class="btn btn-default btn-sm">Visualizar</a>
+                                            {!! Form::open(['method' => 'DELETE', 'url' => '/turmas/'.$turma->id, 'style' => 'display: inline;']) !!}
+                                            <button type="submit" onClick="return confirm('Deseja deletar o registro?')"
+                                                    href=""
+                                                    class="btn btn-default btn-sm">Excluir
+                                            </button>
+                                            {!! Form::close()    !!}
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+
                     </div>
                 </div>
             </div>

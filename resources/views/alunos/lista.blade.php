@@ -16,15 +16,15 @@
                         @endif
 
                         <table class="table">
-                            <tbody>
-                            <tr>
-                                <td>Nome</td>
-                                <td>RG</td>
-                                <td>Opções</td>
-                            </tr>
+                            <thead>
+                            <td>Nome</td>
+                            <td>RG</td>
+                            <td>Opções</td>
+                            </thead>
                             @foreach($alunos as $aluno)
                                 <tr>
-                                    <td>{{$aluno->nome}}</td>
+                                    <td>{{$aluno->nome}}
+                                    </td>
                                     <td>{{$aluno->rg}}</td>
                                     <td>
                                         <a href="/alunos/{{ $aluno->id }}/editar"
@@ -32,15 +32,17 @@
                                         <a href="/alunos/{{ $aluno->id }}/historico"
                                            class="btn btn-default btn-sm">Gerar Histórico</a>
                                         {!! Form::open(['method' => 'DELETE', 'url' => '/alunos/'.$aluno->id, 'style' => 'display: inline;']) !!}
-                                        <button type="submit" onClick="return confirm('Deseja deletar o registro?')" href="/alunos/{{ $aluno->id }}"
+                                        <button type="submit" onClick="return confirm('Deseja deletar o registro?')"
+                                                href="/alunos/{{ $aluno->id }}"
                                                 class="btn btn-default btn-sm">Excluir
                                         </button>
                                         {!! Form::close()    !!}
                                     </td>
                                 </tr>
-                            @endforeach
-                            </tbody>
+                                @endforeach
+                                </thead>
                         </table>
+
                     </div>
                 </div>
             </div>

@@ -49,6 +49,9 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('turmas/salvarnotas', 'TurmasController@salvarnotas');
     Route::delete('turmas/{turma}', 'TurmasController@deletar');
 
+    Route::get('/errors', function () {
+        abort(404);
+    });
 
     Auth::routes();
 

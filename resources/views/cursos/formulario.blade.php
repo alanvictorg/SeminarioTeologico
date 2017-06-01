@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default panel-sis">
-                    <div class="panel-heading" style="text-align: left;">Informe os dados do Aluno
+                    <div class="panel-heading" style="text-align: left;">Informe os dados do curso
                         <a class="pull-right" href="{{ url("cursos") }}">Listagem Cursos</a>
                     </div>
                     <div class="panel-body">

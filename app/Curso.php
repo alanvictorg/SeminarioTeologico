@@ -13,6 +13,6 @@ class Curso extends Model
 
     public function turmas()
     {
-        return $this->hasMany('App\Turma');
+        return $this->hasMany('App\Turma', 'turma_id');
     }
 }

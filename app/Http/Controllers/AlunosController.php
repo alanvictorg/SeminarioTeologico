@@ -15,7 +15,9 @@ class AlunosController extends Controller
     {
         $cursos = Curso::get();
         $alunos = Aluno::get();
+
         return view('alunos.lista', ['alunos' => $alunos, 'cursos' => $cursos]);
+
     }
 
     public function novo()
@@ -46,11 +48,17 @@ class AlunosController extends Controller
         $aluno = Aluno::findOrfail($id);
         $turmas = $aluno->turmas;
 
-        foreach ($turmas as $turma){
+        foreach ($turmas as $turma) {
             $id = $turma->curso_id;
         }
         $curso = Curso::find($id);
-        return view('alunos.historico', ['aluno' => $aluno, 'turma' => $curso]);
+
+        if (empty($turma)) {
+            \Session::flash('mensagem_sucesso', 'O aluno ainda não possui matrícula!');
+            return Redirect::to('alunos/');
+        } else {
+            return view('alunos.historico', ['aluno' => $aluno, 'turma' => $curso]);
+        }
     }
 
     public function atualizar($id, Request $request)
@@ -65,7 +73,8 @@ class AlunosController extends Controller
 
     }
 
-    public function deletar($id)
+    public
+    function deletar($id)
     {
         $aluno = Aluno::findOrfail($id);
 
