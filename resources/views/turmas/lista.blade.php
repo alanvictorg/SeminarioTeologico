@@ -19,6 +19,7 @@
                                 <thead>
                                 <td>Turma</td>
                                 <td>Curso</td>
+                                <td>Professor</td>
                                 <td>Opções</td>
 
                                 </thead>
@@ -27,7 +28,8 @@
                                 @foreach($turmas as $turma)
                                     <tr>
                                         <td>{{$turma->codigo}}</td>
-                                        <td>{{$turma->cursos->nome}}</td>
+                                        <td>{{$turma->curso->nome}}</td>
+                                        <td>{{$turma->professore->nome}}</td>
                                         <td>
                                             <a href="/turmas/{{ $turma->id }}/visualizar"
                                                class="btn btn-default btn-sm">Visualizar</a>

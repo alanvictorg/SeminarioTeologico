@@ -49,8 +49,13 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('turmas/salvarnotas', 'TurmasController@salvarnotas');
     Route::delete('turmas/{turma}', 'TurmasController@deletar');
 
+    Route::get('professores', 'ProfessoresController@index');
+    Route::get('professores/novo', 'ProfessoresController@novo');
+    Route::post('professores/salvar', 'ProfessoresController@salvar');
+
     Route::get('/errors', function () {
         abort(404);
+
     });
 
     Auth::routes();

@@ -73,8 +73,7 @@ class AlunosController extends Controller
 
     }
 
-    public
-    function deletar($id)
+    public function deletar($id)
     {
         $aluno = Aluno::findOrfail($id);
 

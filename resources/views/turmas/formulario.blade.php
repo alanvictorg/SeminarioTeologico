@@ -63,6 +63,14 @@
                         @endforeach
 
                         <div class="row perguntas">
+                            {!! Form::label('professor_id','Professor responsável?') !!}
+                        </div>
+                        @foreach($professores as $professor)
+                            {!! Form::label('professor_id', $professor->nome) !!}
+                            {!! Form::radio('professor_id', $professor->id)  !!}
+                        @endforeach
+
+                        <div class="row perguntas">
                             {!! Form::label('aluno_id','Quais alunos deseja matricular nesta turma?') !!}
                         </div>
 

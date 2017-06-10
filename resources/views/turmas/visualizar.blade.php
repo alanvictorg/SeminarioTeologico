@@ -56,8 +56,11 @@
                                         <td>
                                             <?php
                                             $media = ($avaliacoes[$key]->nota1 + $avaliacoes[$key]->nota2 + $avaliacoes[$key]->nota3) / 3;
+                                            $media1 = number_format($media, 2);
                                             ?>
-                                            {{$media}}
+
+                                            {{$media1}}
+
                                             {!! Form::hidden("alunos[$key][media]", $media) !!}
                                         </td>
 

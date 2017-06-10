@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Aluno;
 use App\Avaliacoe;
 use App\Curso;
+use App\Professore;
 use App\Turma;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -27,7 +28,8 @@ class TurmasController extends Controller
     {
         $alunos = Aluno::get();
         $cursos = Curso::get();
-        return view('turmas.formulario', ['cursos' => $cursos, 'alunos' => $alunos]);
+        $professores = Professore::get();
+        return view('turmas.formulario', ['cursos' => $cursos, 'alunos' => $alunos, 'professores' => $professores]);
     }
 
     public function visualizar($id)
@@ -43,7 +45,7 @@ class TurmasController extends Controller
         $next_seq = intval($next_sequence['0']->nextval);
 
         DB::table('turmas')->insert(
-            ['id' => $next_seq, 'curso_id' => $request->curso_id, 'codigo' => $request->codigo, 'turno' => $request->turno,
+            ['id' => $next_seq, 'curso_id' => $request->curso_id, 'professor_id' => $request->professor_id, 'codigo' => $request->codigo, 'turno' => $request->turno,
                 'credito' => $request->credito, 'hr_aula' => $request->hr_aula, 'ano' => $request->ano,
                 'created_at' => \Carbon\Carbon::now(),
                 'updated_at' => \Carbon\Carbon::now()]

@@ -56,7 +56,7 @@
 
                     @if (Auth::guest())
                         {{--<li><a href="{{ route('login') }}">Login</a></li>--}}
-                        {{--<li><a href="{{ route('register') }}">Register</a></li> --}}
+                        {{--<li><a href="{{ route('register') }}">Register</a></li>--}}
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
@@ -96,6 +96,15 @@
                             </a>
 
                         </li>
+
+                        <li>
+                            <a href="{{ url('professores') }}">
+                                <span class="sidebar-icon"><i class="glyphicon glyphicon-blackboard"></i></span>
+                                <span class="sidebar-title">Professores</span>
+                            </a>
+
+                        </li>
+
                         <li>
                             <a href="{{ url('cursos') }}">
                                 <span class="sidebar-icon"><i class="glyphicon glyphicon-file"></i></span>
@@ -107,11 +116,13 @@
 
                         <li>
                             <a href="{{ url('turmas') }}">
-                                <span class="sidebar-icon"><i class="glyphicon glyphicon-user"></i></span>
+                                <span class="sidebar-icon"><i class="glyphicon glyphicon-tasks"></i></span>
                                 <span class="sidebar-title">Turmas</span>
                             </a>
 
                         </li>
+
+
 
                         {{--<li>--}}
                         {{--<a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse"--}}

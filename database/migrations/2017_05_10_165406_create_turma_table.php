@@ -21,6 +21,11 @@ class CreateTurmaTable extends Migration
             references('id')->
             on('cursos');
 
+            $table->integer('professor_id')->unsigned();
+            $table->foreign('professor_id')->
+            references('id')->
+            on('professores');
+
             $table->string('codigo');
             $table->string('turno');
             $table->string('credito');
