@@ -29,6 +29,14 @@ class TurmasController extends Controller
         $alunos = Aluno::get();
         $cursos = Curso::get();
         $professores = Professore::get();
+
+        if(strlen($alunos) < 3 || strlen($cursos) < 3 || strlen($professores) < 3)
+        {
+            \Session::flash('mensagem_info', 'É necessário cadastrar alunos, cursos e professores para formar turma');
+
+            return Redirect::to('turmas/');
+        }else
+
         return view('turmas.formulario', ['cursos' => $cursos, 'alunos' => $alunos, 'professores' => $professores]);
     }
 
@@ -43,6 +51,15 @@ class TurmasController extends Controller
     {
         $next_sequence = \DB::select("select nextval('turmas_id_seq')");
         $next_seq = intval($next_sequence['0']->nextval);
+
+        $this->validate($request, [
+            'codigo' => 'bail|required',
+            'curso_id' => 'bail|required',
+            'professor_id' => 'bail|required',
+            'credito' => 'bail|required',
+            'ano' => 'bail|required',
+            'hr_aula' => 'bail|required'
+        ]);
 
         DB::table('turmas')->insert(
             ['id' => $next_seq, 'curso_id' => $request->curso_id, 'professor_id' => $request->professor_id, 'codigo' => $request->codigo, 'turno' => $request->turno,

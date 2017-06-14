@@ -26,6 +26,12 @@ class CursosController extends Controller
     public function salvar(Request $request)
     {
         $curso = new Curso();
+
+        $this->validate($request,[
+            'nome' => 'bail|required',
+            'descricao' => 'bail|required'
+        ]);
+
         $curso = $curso->create($request->all());
 
         \Session::flash('mensagem_sucesso', 'Curso cadastrado com sucesso!');

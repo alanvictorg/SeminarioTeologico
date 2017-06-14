@@ -14,6 +14,16 @@
                             <div class="alert alert-success">{{Session::get('mensagem_sucesso')}}</div>
                         @endif
 
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         {{--@if(Request::is('*/editar'))--}}
                         {{--{!! Form::model($aluno, ['method' => 'PATCH', 'url' => 'alunos/'.$aluno->id]) !!}--}}
                         {{--@else--}}
@@ -21,8 +31,8 @@
                         {{--@endif--}}
 
                         {!! Form::input('text', 'nome', null, ['class' => 'form-control', 'autofocus', 'placeholder' => 'Nome' ])  !!}
-                        {!! Form::input('email', 'email', null, ['class' => 'form-control', 'autofocus', 'placeholder' => 'Email' ])  !!}
-                        {!! Form::input('text', 'login', null, ['class' => 'form-control', 'autofocus', 'placeholder' => 'Login' ])  !!}
+                        {!! Form::input('email', 'email', null, ['class' => 'form-control perguntas', 'autofocus', 'placeholder' => 'Email' ])  !!}
+                        {!! Form::input('text', 'login', null, ['class' => 'form-control perguntas', 'autofocus', 'placeholder' => 'Login' ])  !!}
                         <div class="row">
                             {!! Form::submit('Salvar', ['class' => 'btn btn-primary margem-top']) !!}
                         </div>

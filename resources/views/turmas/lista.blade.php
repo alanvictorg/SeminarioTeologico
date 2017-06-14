@@ -15,7 +15,15 @@
                             <div class="alert alert-success">{{Session::get('mensagem_sucesso')}}</div>
                         @endif
 
-                        <table class="table">
+                        @if(Session::has('mensagem_info'))
+                            <div class="alert alert-info">{{Session::get('mensagem_info')}}</div>
+                        @endif
+
+                        @if(strlen($turmas) < 3)
+                            <div class="alert alert-info">Não há turmas formadas!</div>
+                        @else
+
+                            <table class="table">
                                 <thead>
                                 <td>Turma</td>
                                 <td>Curso</td>
@@ -45,6 +53,7 @@
                                 </tbody>
                             </table>
 
+                        @endif
                     </div>
                 </div>
             </div>

@@ -15,6 +15,10 @@
                             <div class="alert alert-success">{{Session::get('mensagem_sucesso')}}</div>
                         @endif
 
+                        @if(strlen($professores) < 3)
+                            <div class="alert alert-info">Não há professores cadastrados!</div>
+                        @else
+
                             <table class="table">
                                 <thead>
                                 <td>Nome</td>
@@ -42,6 +46,7 @@
                                 </tbody>
                             </table>
 
+                        @endif
                     </div>
                 </div>
             </div>

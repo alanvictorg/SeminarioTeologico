@@ -98,9 +98,57 @@ return [
     */
 
     'custom' => [
-        'attribute-name' => [
-            'rule-name' => 'custom-message',
+        'nome' => [
+            'required' => 'O campo "nome" é obrigatório.',
         ],
+        'descricao' => [
+            'required' => 'O campo "descrição" é obrigatório.',
+        ],
+        'filiacao' => [
+            'required' => 'O campo "filiação" é obrigatório.',
+        ],
+        'matricula' => [
+            'required' => 'O campo "matricula" é obrigatório.',
+        ],
+        'dt_nasc' => [
+            'required' => 'O campo "data nascimento" é obrigatório.',
+        ],
+        'natural' => [
+            'required' => 'O campo "naturalidade" é obrigatório.',
+        ],
+        'cpf' => [
+            'required' => 'O campo "cpf" é obrigatório.',
+        ],
+        'rg' => [
+            'required' => 'O campo "rg" é obrigatório.',
+        ],
+        'endereco' => [
+            'required' => 'O campo "endereço" é obrigatório.',
+        ],
+        'email' => [
+            'required' => 'O campo "email" é obrigatório.',
+        ],
+        'login' => [
+            'required' => 'O campo "login" é obrigatório.',
+        ],
+        'codigo' => [
+            'required' => 'O campo "nome da turma" é obrigatório.',
+        ],
+        'curso_id' => [
+            'required' => 'O campo "curso" é obrigatório.',
+        ],
+        'credito' => [
+            'required' => 'O campo "creditos" é obrigatório.',
+        ],
+        'ano' => [
+            'required' => 'O campo "ano/semestre" é obrigatório.',
+        ],
+        'hr_aula' => [
+            'required' => 'O campo "hora/aula" é obrigatório.',
+        ],
+        'professor_id' => [
+            'required' => 'O campo "professor" é obrigatório.',
+        ]
     ],
 
     /*

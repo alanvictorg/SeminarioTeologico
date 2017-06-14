@@ -14,6 +14,16 @@
                             <div class="alert alert-success">{{Session::get('mensagem_sucesso')}}</div>
                         @endif
 
+                        @if (count($errors) > 0)
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
                         @if(Request::is('*/editar'))
                             {!! Form::model($aluno, ['method' => 'PATCH', 'url' => 'alunos/'.$aluno->id]) !!}
                         @else
@@ -97,13 +107,7 @@
                         {!! Form::radio('comunhao_igreja', 'sim')  !!}
                         {!! Form::label('nao','Não') !!}
                         {!! Form::radio('comunhao_igreja', 'nao')  !!}
-                        {{--<div class="row">--}}
-                        {{--{!! Form::label('curso_id','Qual o curso?') !!}--}}
-                        {{--</div>--}}
-                        {{--@foreach($cursos as $curso)--}}
-                        {{--{!! Form::label('curso_id', $curso->descricao) !!}--}}
-                        {{--{!! Form::radio('curso_id', $curso->id)  !!}--}}
-                        {{--@endforeach--}}
+
 
 
                         <div class="row">

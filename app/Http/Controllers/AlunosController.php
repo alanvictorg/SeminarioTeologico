@@ -29,6 +29,18 @@ class AlunosController extends Controller
     public function salvar(Request $request)
     {
         $aluno = new Aluno();
+
+        $this->validate($request, [
+            'nome' => 'bail|required',
+            'filiacao' => 'bail|required',
+            'matricula' => 'bail|required',
+            'dt_nasc' => 'bail|required',
+            'natural' => 'bail|required',
+            'cpf' => 'bail|required',
+            'rg' => 'bail|required',
+            'endereco' => 'bail|required',
+        ]);
+
         $aluno = $aluno->create($request->all());
 
         \Session::flash('mensagem_sucesso', 'Aluno cadastrado com sucesso!');
@@ -54,7 +66,7 @@ class AlunosController extends Controller
         $curso = Curso::find($id);
 
         if (empty($turma)) {
-            \Session::flash('mensagem_sucesso', 'O aluno ainda não possui matrícula!');
+            \Session::flash('mensagem_info', 'O aluno ainda não possui matrícula');
             return Redirect::to('alunos/');
         } else {
             return view('alunos.historico', ['aluno' => $aluno, 'turma' => $curso]);

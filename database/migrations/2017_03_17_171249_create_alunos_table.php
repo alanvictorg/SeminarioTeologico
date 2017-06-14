@@ -16,30 +16,30 @@ class CreateAlunosTable extends Migration
 
         Schema::create('alunos', function (Blueprint $table){
             $table->increments('id');
-            $table->string('nome');
-            $table->string('matricula');
-            $table->string('filiacao');
-            $table->string('dt_nasc');
-            $table->string('natural');
-            $table->string('cpf');
-            $table->string('rg');
-            $table->string('org_exp');
-            $table->string('est_civil');
-            $table->string('escolaridade');
-            $table->string('endereco');
-            $table->string('local_trabalho');
-            $table->string('data_conversao');
-            $table->string('batismo');
-            $table->string('membro');
-            $table->string('batismo_espirito');
-            $table->string('nome_igreja');
-            $table->string('end_igreja');
-            $table->string('nome_pastor');
-            $table->string('tel_pastor');
-            $table->string('chamado_ministerial');
-            $table->string('comunhao_igreja');
-            $table->date('updated_at');
-            $table->date('created_at');
+            $table->string('nome')->nullable();
+            $table->string('matricula')->nullable();
+            $table->string('filiacao')->nullable();
+            $table->string('dt_nasc')->nullable();
+            $table->string('natural')->nullable();
+            $table->string('cpf')->nullable();
+            $table->string('rg')->nullable();
+            $table->string('org_exp')->nullable();
+            $table->string('est_civil')->nullable();
+            $table->string('escolaridade')->nullable();
+            $table->string('endereco')->nullable();
+            $table->string('local_trabalho')->nullable();
+            $table->string('data_conversao')->nullable();
+            $table->string('batismo')->nullable();
+            $table->string('membro')->nullable();
+            $table->string('batismo_espirito')->nullable();
+            $table->string('nome_igreja')->nullable();
+            $table->string('end_igreja')->nullable();
+            $table->string('nome_pastor')->nullable();
+            $table->string('tel_pastor')->nullable();
+            $table->string('chamado_ministerial')->nullable();
+            $table->string('comunhao_igreja')->nullable();
+            $table->date('updated_at')->nullable();
+            $table->date('created_at')->nullable();
 
 //            $table->integer('curso_id')->unsigned();
 //

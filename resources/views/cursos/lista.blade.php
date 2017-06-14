@@ -15,7 +15,11 @@
                             <div class="alert alert-success">{{Session::get('mensagem_sucesso')}}</div>
                         @endif
 
-                        <table class="table">
+                        @if(strlen($cursos) < 3)
+                            <div class="alert alert-info">Não há cursos cadastrados!</div>
+                        @else
+
+                            <table class="table">
                                 <thead>
                                 <td>Nome</td>
                                 <td>Opções</td>
@@ -41,6 +45,8 @@
                                 @endforeach
                                 </tbody>
                             </table>
+
+                        @endif
                     </div>
                 </div>
             </div>
