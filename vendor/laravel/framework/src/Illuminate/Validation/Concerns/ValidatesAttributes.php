@@ -478,7 +478,9 @@ trait ValidatesAttributes
             [1, 1], array_filter(sscanf($parameters['ratio'], '%f/%d'))
         );
 
-        return abs($numerator / $denominator - $width / $height) > 0.000001;
+        $precision = 1 / max($width, $height);
+
+        return abs($numerator / $denominator - $width / $height) > $precision;
     }
 
     /**
@@ -926,7 +928,9 @@ trait ValidatesAttributes
             return false;
         }
 
-        return $value->getPath() != '' && in_array($value->getMimeType(), $parameters);
+        return $value->getPath() != '' &&
+                (in_array($value->getMimeType(), $parameters) ||
+                 in_array(explode('/', $value->getMimeType())[0].'/*', $parameters));
     }
 
     /**
