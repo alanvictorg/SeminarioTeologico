@@ -45,6 +45,7 @@ class ComposerStaticInit8cea155fb72b21c540074f8b4008cf76
             'Symfony\\Component\\Translation\\' => 30,
             'Symfony\\Component\\Routing\\' => 26,
             'Symfony\\Component\\Process\\' => 26,
+            'Symfony\\Component\\OptionsResolver\\' => 34,
             'Symfony\\Component\\HttpKernel\\' => 29,
             'Symfony\\Component\\HttpFoundation\\' => 33,
             'Symfony\\Component\\Finder\\' => 25,
@@ -91,6 +92,7 @@ class ComposerStaticInit8cea155fb72b21c540074f8b4008cf76
         ),
         'C' => 
         array (
+            'Csanquer\\Silex\\PdoServiceProvider\\' => 34,
             'Cron\\' => 5,
             'Cowsayphp\\' => 10,
             'Collective\\Html\\' => 16,
@@ -156,6 +158,10 @@ class ComposerStaticInit8cea155fb72b21c540074f8b4008cf76
         'Symfony\\Component\\Process\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/process',
+        ),
+        'Symfony\\Component\\OptionsResolver\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/options-resolver',
         ),
         'Symfony\\Component\\HttpKernel\\' => 
         array (
@@ -244,6 +250,10 @@ class ComposerStaticInit8cea155fb72b21c540074f8b4008cf76
         'DeepCopy\\' => 
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
+        ),
+        'Csanquer\\Silex\\PdoServiceProvider\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/csanquer/pdo-service-provider/src',
         ),
         'Cron\\' => 
         array (
@@ -431,6 +441,16 @@ class ComposerStaticInit8cea155fb72b21c540074f8b4008cf76
         'Cron\\MinutesField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/MinutesField.php',
         'Cron\\MonthField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/MonthField.php',
         'Cron\\YearField' => __DIR__ . '/..' . '/mtdowling/cron-expression/src/Cron/YearField.php',
+        'Csanquer\\Silex\\PdoServiceProvider\\Config\\DBlibConfig' => __DIR__ . '/..' . '/csanquer/pdo-service-provider/src/Config/DBlibConfig.php',
+        'Csanquer\\Silex\\PdoServiceProvider\\Config\\MySqlConfig' => __DIR__ . '/..' . '/csanquer/pdo-service-provider/src/Config/MySqlConfig.php',
+        'Csanquer\\Silex\\PdoServiceProvider\\Config\\OracleConfig' => __DIR__ . '/..' . '/csanquer/pdo-service-provider/src/Config/OracleConfig.php',
+        'Csanquer\\Silex\\PdoServiceProvider\\Config\\PdoConfig' => __DIR__ . '/..' . '/csanquer/pdo-service-provider/src/Config/PdoConfig.php',
+        'Csanquer\\Silex\\PdoServiceProvider\\Config\\PdoConfigFactory' => __DIR__ . '/..' . '/csanquer/pdo-service-provider/src/Config/PdoConfigFactory.php',
+        'Csanquer\\Silex\\PdoServiceProvider\\Config\\PdoConfigInterface' => __DIR__ . '/..' . '/csanquer/pdo-service-provider/src/Config/PdoConfigInterface.php',
+        'Csanquer\\Silex\\PdoServiceProvider\\Config\\PgSqlConfig' => __DIR__ . '/..' . '/csanquer/pdo-service-provider/src/Config/PgSqlConfig.php',
+        'Csanquer\\Silex\\PdoServiceProvider\\Config\\SqlSrvConfig' => __DIR__ . '/..' . '/csanquer/pdo-service-provider/src/Config/SqlSrvConfig.php',
+        'Csanquer\\Silex\\PdoServiceProvider\\Config\\SqliteConfig' => __DIR__ . '/..' . '/csanquer/pdo-service-provider/src/Config/SqliteConfig.php',
+        'Csanquer\\Silex\\PdoServiceProvider\\Provider\\PDOServiceProvider' => __DIR__ . '/..' . '/csanquer/pdo-service-provider/src/Provider/PDOServiceProvider.php',
         'DatabaseSeeder' => __DIR__ . '/../..' . '/database/seeds/DatabaseSeeder.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
@@ -3260,6 +3280,16 @@ class ComposerStaticInit8cea155fb72b21c540074f8b4008cf76
         'Symfony\\Component\\HttpKernel\\Profiler\\ProfilerStorageInterface' => __DIR__ . '/..' . '/symfony/http-kernel/Profiler/ProfilerStorageInterface.php',
         'Symfony\\Component\\HttpKernel\\TerminableInterface' => __DIR__ . '/..' . '/symfony/http-kernel/TerminableInterface.php',
         'Symfony\\Component\\HttpKernel\\UriSigner' => __DIR__ . '/..' . '/symfony/http-kernel/UriSigner.php',
+        'Symfony\\Component\\OptionsResolver\\Exception\\AccessException' => __DIR__ . '/..' . '/symfony/options-resolver/Exception/AccessException.php',
+        'Symfony\\Component\\OptionsResolver\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/symfony/options-resolver/Exception/ExceptionInterface.php',
+        'Symfony\\Component\\OptionsResolver\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/symfony/options-resolver/Exception/InvalidArgumentException.php',
+        'Symfony\\Component\\OptionsResolver\\Exception\\InvalidOptionsException' => __DIR__ . '/..' . '/symfony/options-resolver/Exception/InvalidOptionsException.php',
+        'Symfony\\Component\\OptionsResolver\\Exception\\MissingOptionsException' => __DIR__ . '/..' . '/symfony/options-resolver/Exception/MissingOptionsException.php',
+        'Symfony\\Component\\OptionsResolver\\Exception\\NoSuchOptionException' => __DIR__ . '/..' . '/symfony/options-resolver/Exception/NoSuchOptionException.php',
+        'Symfony\\Component\\OptionsResolver\\Exception\\OptionDefinitionException' => __DIR__ . '/..' . '/symfony/options-resolver/Exception/OptionDefinitionException.php',
+        'Symfony\\Component\\OptionsResolver\\Exception\\UndefinedOptionsException' => __DIR__ . '/..' . '/symfony/options-resolver/Exception/UndefinedOptionsException.php',
+        'Symfony\\Component\\OptionsResolver\\Options' => __DIR__ . '/..' . '/symfony/options-resolver/Options.php',
+        'Symfony\\Component\\OptionsResolver\\OptionsResolver' => __DIR__ . '/..' . '/symfony/options-resolver/OptionsResolver.php',
         'Symfony\\Component\\Process\\Exception\\ExceptionInterface' => __DIR__ . '/..' . '/symfony/process/Exception/ExceptionInterface.php',
         'Symfony\\Component\\Process\\Exception\\InvalidArgumentException' => __DIR__ . '/..' . '/symfony/process/Exception/InvalidArgumentException.php',
         'Symfony\\Component\\Process\\Exception\\LogicException' => __DIR__ . '/..' . '/symfony/process/Exception/LogicException.php',
