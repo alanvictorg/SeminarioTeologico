@@ -19,12 +19,14 @@ class CreateTurmaTable extends Migration
             $table->integer('curso_id')->unsigned();
             $table->foreign('curso_id')->
             references('id')->
-            on('cursos');
+            on('cursos')->
+            onDelete('cascade');
 
             $table->integer('professor_id')->unsigned();
             $table->foreign('professor_id')->
             references('id')->
-            on('professores');
+            on('professores')->
+            onDelete('cascade');
 
             $table->string('codigo');
             $table->string('turno');

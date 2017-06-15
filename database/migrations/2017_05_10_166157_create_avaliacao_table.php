@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateAvaliacaoTable extends Migration
 {
@@ -13,18 +13,20 @@ class CreateAvaliacaoTable extends Migration
      */
     public function up()
     {
-        Schema::create('avaliacoes', function (Blueprint $table){
+        Schema::create('avaliacoes', function (Blueprint $table) {
             $table->increments('id');
 
             $table->integer('aluno_id')->unsigned();
             $table->foreign('aluno_id')->
-                references('id')->
-                on('alunos');
+            references('id')->
+            on('alunos')->
+            onDelete('cascade');
 
             $table->integer('turma_id')->unsigned();
             $table->foreign('turma_id')->
-                references('id')->
-                on('turmas');
+            references('id')->
+            on('turmas')->
+            onDelete('cascade');
 
             $table->decimal('nota1')->nullable();
             $table->decimal('nota2')->nullable();
