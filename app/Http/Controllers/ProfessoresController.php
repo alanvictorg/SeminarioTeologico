@@ -37,4 +37,15 @@ class ProfessoresController extends Controller
 
         return Redirect::to('professores/novo');
     }
+
+    public function deletar($id)
+    {
+        $professor = Professore::findOrfail($id);
+
+        $professor->delete();
+
+        \Session::flash('mensagem_sucesso', 'Professor deletado com sucesso!');
+
+        return Redirect::to('professores');
+    }
 }

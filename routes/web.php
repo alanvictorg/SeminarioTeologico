@@ -65,6 +65,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('professores', 'ProfessoresController@index');
     Route::get('professores/novo', 'ProfessoresController@novo');
     Route::post('professores/salvar', 'ProfessoresController@salvar');
+    Route::delete('professores/{professor}', 'ProfessoresController@deletar');
+
 
     Route::get('/errors', function () {
         abort(404);
