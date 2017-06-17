@@ -3,11 +3,11 @@
 @section('content')
 
     <div class="container">
-        <div class="row">
+        <div class="row row-lista">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default panel-sis">
                     <div class="panel-heading" style="text-align: left;">Cursos
-                        <a class="pull-right" href="{{ url('cursos/novo') }}">Novo Curso</a>
+                        <a class="pull-right" href="{{ url('cursos/create') }}">Novo Curso</a>
                     </div>
 
                     <div class="panel-body">

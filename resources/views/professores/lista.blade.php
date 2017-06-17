@@ -3,11 +3,11 @@
 @section('content')
 
     <div class="container">
-        <div class="row">
+        <div class="row row-lista">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default panel-sis">
                     <div class="panel-heading" style="text-align: left;">Professores
-                        <a class="pull-right" href="{{ url('professores/novo') }}">Cadastrar Professor</a>
+                        <a class="pull-right" href="{{ url('professores/create') }}">Cadastrar Profº</a>
                     </div>
 
                     <div class="panel-body">

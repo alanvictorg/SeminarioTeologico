@@ -17,13 +17,13 @@ class CursosController extends Controller
 
 
 
-    public function novo()
+    public function create()
     {
         $cursos = Curso::get();
         return view('cursos.formulario', ['cursos' => $cursos]);
     }
 
-    public function salvar(Request $request)
+    public function store(Request $request)
     {
         $curso = new Curso();
 
@@ -36,10 +36,10 @@ class CursosController extends Controller
 
         \Session::flash('mensagem_sucesso', 'Curso cadastrado com sucesso!');
 
-        return Redirect::to('cursos/novo');
+        return Redirect::to('cursos/create');
     }
 
-    public function deletar($id)
+    public function destroy($id)
     {
         $curso = Curso::findOrfail($id);
 

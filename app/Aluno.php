@@ -43,14 +43,5 @@ class Aluno extends Model
         return $this->hasMany('App\Avaliacoe');
     }
 
-    protected static function boot() {
-        parent::boot();
 
-        static::deleting(function($aluno) { // before delete() method call this
-            $aluno->avaliacoes()->delete();
-            $aluno->turmas()->delete();
-
-            // do the rest of the cleanup...
-        });
-    }
 }

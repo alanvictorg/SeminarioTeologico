@@ -3,10 +3,10 @@
 @section('content')
 
     <div class="container">
-        <div class="row">
+        <div class="row row-lista">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default panel-sis">
-                    <div class="panel-heading" style="text-align: left;">Informe os dados da turma
+                    <div class="panel-heading form-cad" style="text-align: left;">Informe os dados da turma
                         <a class="pull-right" href="{{ url("turmas") }}">Listagem Turmas</a>
                     </div>
                     <div class="panel-body">
@@ -24,11 +24,11 @@
                             </div>
                         @endif
 
-                        {{--@if(Request::is('*/editar'))--}}
-                        {{--{!! Form::model($aluno, ['method' => 'PATCH', 'url' => 'alunos/'.$aluno->id]) !!}--}}
-                        {{--@else--}}
-                        {!! Form::open(['url' => 'turmas/salvar']) !!}
-                        {{--@endif--}}
+                        @if(Request::is('*/edit'))
+                        {!! Form::model($turma, ['method' => 'PATCH', 'url' => 'turmas/'.$turma->id]) !!}
+                        @else
+                        {!! Form::open(['action' => 'TurmasController@store']) !!}
+                        @endif
                         <div class="row">
                             {!! Form::label('codigo','Qual o nome da turma?') !!}
                         </div>

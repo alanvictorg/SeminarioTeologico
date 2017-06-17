@@ -20,13 +20,13 @@ class AlunosController extends Controller
 
     }
 
-    public function novo()
+    public function create()
     {
         $cursos = Curso::get();
         return view('alunos.formulario', ['cursos' => $cursos]);
     }
 
-    public function salvar(Request $request)
+    public function store(Request $request)
     {
         $aluno = new Aluno();
 
@@ -45,16 +45,16 @@ class AlunosController extends Controller
 
         \Session::flash('mensagem_sucesso', 'Aluno cadastrado com sucesso!');
 
-        return Redirect::to('alunos/novo');
+        return Redirect::to('alunos/create');
     }
 
-    public function editar($id)
+    public function edit($id)
     {
         $aluno = Aluno::findOrfail($id);
         return view('alunos.formulario', ['aluno' => $aluno]);
     }
 
-    public function historico($id)
+    public function show($id)
     {
         $turmas = new Turma();
         $aluno = Aluno::findOrfail($id);
@@ -73,7 +73,7 @@ class AlunosController extends Controller
         }
     }
 
-    public function atualizar($id, Request $request)
+    public function update($id, Request $request)
     {
         $aluno = Aluno::findOrfail($id);
 
@@ -81,11 +81,11 @@ class AlunosController extends Controller
 
         \Session::flash('mensagem_sucesso', 'Aluno atualizado com sucesso!');
 
-        return Redirect::to('alunos/' . $aluno->id . '/editar');
+        return Redirect::to('alunos/' . $aluno->id . '/edit');
 
     }
 
-    public function deletar($id)
+    public function destroy($id)
     {
         $aluno = Aluno::findOrfail($id);
 

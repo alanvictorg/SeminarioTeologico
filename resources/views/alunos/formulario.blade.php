@@ -3,10 +3,10 @@
 @section('content')
 
     <div class="container">
-        <div class="row">
+        <div class="row row-lista">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default panel-sis">
-                    <div class="panel-heading" style="text-align: left;">Informe os dados do Aluno
+                    <div class="panel-heading form-cad" style="text-align: left;">Informe os dados do Aluno
                         <a class="pull-right" href="{{ url("alunos") }}">Listagem Alunos</a>
                     </div>
                     <div class="panel-body">
@@ -24,10 +24,10 @@
                             </div>
                         @endif
 
-                        @if(Request::is('*/editar'))
+                        @if(Request::is('*/edit'))
                             {!! Form::model($aluno, ['method' => 'PATCH', 'url' => 'alunos/'.$aluno->id]) !!}
                         @else
-                            {!! Form::open(['url' => 'alunos/salvar']) !!}
+                            {!! Form::open(['action'=>'AlunosController@store']) !!}
                         @endif
 
                         {!! Form::input('text', 'nome', null, ['class' => 'form-control', 'autofocus', 'placeholder' => 'Nome' ])  !!}

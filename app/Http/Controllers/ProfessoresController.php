@@ -15,12 +15,12 @@ class ProfessoresController extends Controller
         return view('professores.lista', ['professores' => $professores]);
     }
 
-    public function novo()
+    public function create()
     {
         return view('professores/formulario');
     }
 
-    public function salvar(Request $request)
+    public function store(Request $request)
     {
         $professor = new Professore();
 
@@ -35,10 +35,10 @@ class ProfessoresController extends Controller
 
         \Session::flash('mensagem_sucesso', 'Professor cadastrado com sucesso!');
 
-        return Redirect::to('professores/novo');
+        return Redirect::to('professores/create');
     }
 
-    public function deletar($id)
+    public function destroy($id)
     {
         $professor = Professore::findOrfail($id);
 

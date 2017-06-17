@@ -24,7 +24,7 @@ class TurmasController extends Controller
         return view('turmas.lista', ['turmas' => $turmas]);
     }
 
-    public function novo()
+    public function create()
     {
         $alunos = Aluno::get();
         $cursos = Curso::get();
@@ -40,14 +40,34 @@ class TurmasController extends Controller
         return view('turmas.formulario', ['cursos' => $cursos, 'alunos' => $alunos, 'professores' => $professores]);
     }
 
-    public function visualizar($id)
+    public function show($id)
     {
         $turma = Turma::findOrfail($id);
         $avaliacoes = Avaliacoe::where('turma_id', $id)->orderBy('id')->get();
         return view('turmas.visualizar', ['turma' => $turma, 'avaliacoes' => $avaliacoes]); //, 'alunos' => $alunos
     }
 
-    public function salvar(Request $request)
+    public function edit($id)
+    {
+        $turma = Turma::findOrfail($id);
+        $cursos = Curso::get();
+        $professores = Professore::get();
+        $alunos = Aluno::get();
+        return view('turmas.formulario', ['turma' => $turma, 'cursos' => $cursos, 'professores' => $professores, 'alunos' => $alunos]);
+    }
+
+    public function update($id, Request $request)
+    {
+        $turma = Turma::findOrfail($id);
+
+        $turma->update($request->all());
+
+        \Session::flash('mensagem_sucesso', 'Turma atualizada com sucesso!');
+
+        return Redirect::to('turmas/' . $turma->id . '/edit');
+    }
+
+    public function store(Request $request)
     {
         $next_sequence = \DB::select("select nextval('turmas_id_seq')");
         $next_seq = intval($next_sequence['0']->nextval);
@@ -93,7 +113,7 @@ class TurmasController extends Controller
 
         \Session::flash('mensagem_sucesso', 'Turma cadastrada com sucesso!');
 
-        return Redirect::to('turmas/novo');
+        return Redirect::to('turmas/create');
     }
 
     public function salvarnotas(Request $request)
@@ -145,7 +165,7 @@ class TurmasController extends Controller
         return Redirect::to('turmas');
     }
 
-    public function deletar($id)
+    public function destroy($id)
     {
         $turma = Turma::findOrfail($id);
 

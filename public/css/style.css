@@ -199,6 +199,7 @@ body {
     color: #888;
     line-height: 30px;
     text-align: center;
+
 }
 
 strong {
@@ -416,6 +417,11 @@ img {
     text-align: left;
 }
 
+.row-lista {
+    margin-left: 28px;
+}
+
+
 /***** Media queries *****/
 
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -437,7 +443,17 @@ img {
     h1, h2 {
         font-size: 32px;
     }
+    .form-cad {
+        font-size: 14px;
+    }
 
+
+}
+
+@media (max-width: 375px){
+    .form-cad {
+        font-size: 11px;
+    }
 }
 
 /*.tela-login { 

@@ -34,39 +34,15 @@ Route::group(['middleware' => 'web'], function () {
         }
     });
 
-    Route::get('alunos', 'AlunosController@index');
-    Route::get('alunos/novo', 'AlunosController@novo');
-    Route::get('alunos/{aluno}/editar', 'AlunosController@editar');
-    Route::get('alunos/{aluno}/historico', 'AlunosController@historico');
-    Route::post('alunos/salvar', 'AlunosController@salvar');
-    Route::patch('alunos/{aluno}', 'AlunosController@atualizar');
-    Route::delete('alunos/{aluno}', 'AlunosController@deletar');
+    Route::resource('alunos', 'AlunosController');
 
-    Route::get('disciplinas', 'DisciplinasController@index');
-    Route::get('disciplinas/novo', 'DisciplinasController@novo');
-    Route::get('disciplinas/{disciplina}/editar', 'DisciplinasController@editar');
-    Route::post('disciplinas/salvar', 'DisciplinasController@salvar');
-    Route::patch('disciplinas/{disciplina}', 'DisciplinasController@atualizar');
-    Route::delete('disciplinas/{disciplina}', 'DisciplinasController@deletar');
+    Route::resource('cursos', 'CursosController');
 
-    Route::get('cursos', 'CursosController@index');
-    Route::get('cursos/novo', 'CursosController@novo');
-    Route::get('cursos/{curso}/editar', 'CursosController@editar');
-    Route::post('cursos/salvar', 'CursosController@salvar');
-    Route::delete('cursos/{curso}', 'CursosController@deletar');
+    Route::resource('turmas', 'TurmasController');
 
-    Route::get('turmas', 'TurmasController@index');
-    Route::get('turmas/novo', 'TurmasController@novo');
-    Route::get('turmas/{turma}/visualizar', 'TurmasController@visualizar');
-    Route::post('turmas/salvar', 'TurmasController@salvar');
     Route::post('turmas/salvarnotas', 'TurmasController@salvarnotas');
-    Route::delete('turmas/{turma}', 'TurmasController@deletar');
 
-    Route::get('professores', 'ProfessoresController@index');
-    Route::get('professores/novo', 'ProfessoresController@novo');
-    Route::post('professores/salvar', 'ProfessoresController@salvar');
-    Route::delete('professores/{professor}', 'ProfessoresController@deletar');
-
+    Route::resource('professores', 'ProfessoresController');
 
     Route::get('/errors', function () {
         abort(404);

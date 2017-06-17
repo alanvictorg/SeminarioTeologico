@@ -3,11 +3,11 @@
 @section('content')
 
     <div class="container">
-        <div class="row">
+        <div class="row row-lista">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default panel-sis">
-                    <div class="panel-heading" style="text-align: left;">Informe os dados do professor
-                        <a class="pull-right" href="{{ url("cursos") }}">Listagem Professores</a>
+                    <div class="panel-heading form-cad" style="text-align: left;">Informe os dados do prof°
+                        <a class="pull-right" href="{{ url("professores") }}">Listagem Prof°</a>
                     </div>
                     <div class="panel-body">
                         @if(Session::has('mensagem_sucesso'))
@@ -27,7 +27,7 @@
                         {{--@if(Request::is('*/editar'))--}}
                         {{--{!! Form::model($aluno, ['method' => 'PATCH', 'url' => 'alunos/'.$aluno->id]) !!}--}}
                         {{--@else--}}
-                        {!! Form::open(['url' => 'professores/salvar']) !!}
+                        {!! Form::open(['action' => 'ProfessoresController@store']) !!}
                         {{--@endif--}}
 
                         {!! Form::input('text', 'nome', null, ['class' => 'form-control', 'autofocus', 'placeholder' => 'Nome' ])  !!}

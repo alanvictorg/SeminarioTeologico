@@ -3,10 +3,10 @@
 @section('content')
 
     <div class="container">
-        <div class="row">
+        <div class="row row-lista">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default panel-sis">
-                    <div class="panel-heading" style="text-align: left;">Informe os dados do curso
+                    <div class="panel-heading form-cad" style="text-align: left;">Informe os dados do curso
                         <a class="pull-right" href="{{ url("cursos") }}">Listagem Cursos</a>
                     </div>
                     <div class="panel-body">
@@ -28,7 +28,7 @@
                         {{--@if(Request::is('*/editar'))--}}
                         {{--{!! Form::model($aluno, ['method' => 'PATCH', 'url' => 'alunos/'.$aluno->id]) !!}--}}
                         {{--@else--}}
-                        {!! Form::open(['url' => 'cursos/salvar']) !!}
+                        {!! Form::open(['action' => 'CursosController@store']) !!}
                         {{--@endif--}}
 
                         {!! Form::input('text', 'nome', null, ['class' => 'form-control', 'autofocus', 'placeholder' => 'Nome' ])  !!}

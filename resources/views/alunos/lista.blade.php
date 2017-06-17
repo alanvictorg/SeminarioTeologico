@@ -3,11 +3,11 @@
 @section('content')
 
     <div class="container">
-        <div class="row">
+        <div class="row row-lista">
             <div class="col-md-8 col-md-offset-2">
                 <div class="panel panel-default panel-sis">
                     <div class="panel-heading" style="text-align: left;">Alunos
-                        <a class="pull-right" href="{{ url('alunos/novo') }}">Novo Aluno</a>
+                        <a class="pull-right" href="{{ url('alunos/create') }}">Novo Aluno</a>
                     </div>
 
                     <div class="panel-body">
@@ -34,9 +34,9 @@
                                         </td>
                                         <td>{{$aluno->rg}}</td>
                                         <td>
-                                            <a href="/alunos/{{ $aluno->id }}/editar"
+                                            <a href="/alunos/{{ $aluno->id }}/edit"
                                                class="btn btn-default btn-sm">Editar</a>
-                                            <a href="/alunos/{{ $aluno->id }}/historico"
+                                            <a href="/alunos/{{ $aluno->id }}"
                                                class="btn btn-default btn-sm">Gerar Histórico</a>
                                             {!! Form::open(['method' => 'DELETE', 'url' => '/alunos/'.$aluno->id, 'style' => 'display: inline;']) !!}
                                             <button type="submit" onClick="return confirm('Deseja deletar o registro?')"
