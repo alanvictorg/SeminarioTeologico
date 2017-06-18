@@ -23,3 +23,31 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\Aluno::class, function (Faker\Generator $faker) {
+    return [
+        'nome' => $faker->name,
+        'filiacao' => $faker->text(10),
+        'matricula'=> $faker->numberBetween(1,100),
+        'dt_nasc'=> $faker->date('m-d-Y'),
+        'natural'=> $faker->text(10),
+        'cpf'=> $faker->numberBetween(1,100),
+        'rg'=> $faker->text(10),
+        'org_exp'=> $faker->text(10),
+        'est_civil'=> $faker->text(10),
+        'escolaridade'=> $faker->text(10),
+        'endereco'=> $faker->text(10),
+        'local_trabalho'=> $faker->text(10),
+        'data_conversao'=> $faker->text(10),
+        'batismo'=> $faker->text(10),
+        'membro'=> $faker->text(10),
+        'batismo_espirito'=> $faker->text(10),
+        'nome_igreja'=> $faker->text(10),
+        'end_igreja'=> $faker->text(10),
+        'nome_pastor'=> $faker->text(10),
+        'tel_pastor'=> $faker->text(10),
+        'chamado_ministerial'=> $faker->text(10),
+        'comunhao_igreja'=> $faker->text(10),
+
+    ];
+});
+

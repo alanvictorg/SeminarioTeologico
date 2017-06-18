@@ -32,8 +32,6 @@
                                         <td>{{$curso->nome}}</td>
 
                                         <td>
-                                            <a href=""
-                                               class="btn btn-default btn-sm">Editar</a>
                                             {!! Form::open(['method' => 'DELETE', 'url' => '/cursos/'.$curso->id, 'style' => 'display: inline;']) !!}
                                             <button type="submit" onClick="return confirm('Deseja deletar o registro?')"
                                                     href=""

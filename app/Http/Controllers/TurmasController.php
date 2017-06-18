@@ -20,8 +20,14 @@ class TurmasController extends Controller
 
     public function index()
     {
-        $turmas = Turma::get(); // $this->curso->turmas; //
-        return view('turmas.lista', ['turmas' => $turmas]);
+        $paginar = false;
+        if (Turma::count() > 8) {
+            $turmas = Turma::paginate(8);
+            $paginar = true;
+        } else {
+            $turmas = Turma::get();
+        }
+        return view('turmas.lista', ['turmas' => $turmas, 'paginar' => $paginar]);
     }
 
     public function create()
@@ -30,14 +36,13 @@ class TurmasController extends Controller
         $cursos = Curso::get();
         $professores = Professore::get();
 
-        if(strlen($alunos) < 3 || strlen($cursos) < 3 || strlen($professores) < 3)
-        {
+        if (strlen($alunos) < 3 || strlen($cursos) < 3 || strlen($professores) < 3) {
             \Session::flash('mensagem_info', 'É necessário cadastrar alunos, cursos e professores para formar turma');
 
             return Redirect::to('turmas/');
-        }else
+        } else
 
-        return view('turmas.formulario', ['cursos' => $cursos, 'alunos' => $alunos, 'professores' => $professores]);
+            return view('turmas.formulario', ['cursos' => $cursos, 'alunos' => $alunos, 'professores' => $professores]);
     }
 
     public function show($id)

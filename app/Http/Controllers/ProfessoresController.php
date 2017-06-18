@@ -11,8 +11,15 @@ class ProfessoresController extends Controller
 {
     public function index()
     {
-        $professores = Professore::get();
-        return view('professores.lista', ['professores' => $professores]);
+        $paginar = false;
+        if (Professore::count() > 8) {
+            $professores = Professore::paginate(8);
+            $paginar = true;
+        } else {
+            $professores = Professore::get();
+        }
+
+        return view('professores.lista', ['professores' => $professores, 'paginar' => $paginar]);
     }
 
     public function create()

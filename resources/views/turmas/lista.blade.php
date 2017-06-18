@@ -54,7 +54,9 @@
                                 @endforeach
                                 </tbody>
                             </table>
-
+                            @if($paginar)
+                                {{$turmas->render()}}
+                            @endif
                         @endif
                     </div>
                 </div>

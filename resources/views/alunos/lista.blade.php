@@ -43,12 +43,15 @@
                                                     href="/alunos/{{ $aluno->id }}"
                                                     class="btn btn-default btn-sm">Excluir
                                             </button>
-                                            {!! Form::close()    !!}
+                                            {!! Form::close() !!}
                                         </td>
                                     </tr>
                                     @endforeach
                                     </thead>
                             </table>
+                            @if($paginar)
+                                {{ $alunos->render() }}
+                            @endif
                         @endif
                     </div>
                 </div>

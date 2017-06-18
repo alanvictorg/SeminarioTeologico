@@ -32,8 +32,6 @@
                                         <td>{{$professor->nome}}</td>
 
                                         <td>
-                                            <a href=""
-                                               class="btn btn-default btn-sm">Editar</a>
                                             {!! Form::open(['method' => 'DELETE', 'url' => '/professores/'.$professor->id, 'style' => 'display: inline;']) !!}
                                             <button type="submit" onClick="return confirm('Deseja deletar o registro?')"
                                                     href=""
@@ -45,7 +43,9 @@
                                 @endforeach
                                 </tbody>
                             </table>
-
+                            @if($paginar)
+                                {{ $professores->render() }}
+                            @endif
                         @endif
                     </div>
                 </div>

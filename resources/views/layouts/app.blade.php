@@ -8,14 +8,14 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Seminário Teologia') }}</title>
+    <title>{{ config('app.name', 'STID') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- <link href="{{ asset('css/css/form-elements.css') }}" rel="stylesheet"> -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    <link rel="shortcut icon" type="image/png" href="/img/idb-icon.png"/>
+    <link rel="shortcut icon" type="image/png" href="/img/stid.png"/>
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
@@ -160,5 +160,38 @@
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
+
+{{--<footer class="footer-distributed">--}}
+
+    {{--<div class="footer-right">--}}
+
+        {{--<a href="#"><i class="fa fa-facebook"></i></a>--}}
+        {{--<a href="#"><i class="fa fa-twitter"></i></a>--}}
+        {{--<a href="#"><i class="fa fa-linkedin"></i></a>--}}
+        {{--<a href="#"><i class="fa fa-github"></i></a>--}}
+
+    {{--</div>--}}
+
+    {{--<div class="footer-left">--}}
+
+        {{--<p class="footer-links">--}}
+            {{--<a href="#">Home</a>--}}
+            {{--·--}}
+            {{--<a href="#">Blog</a>--}}
+            {{--·--}}
+            {{--<a href="#">Pricing</a>--}}
+            {{--·--}}
+            {{--<a href="#">About</a>--}}
+            {{--·--}}
+            {{--<a href="#">Faq</a>--}}
+            {{--·--}}
+            {{--<a href="#">Contact</a>--}}
+        {{--</p>--}}
+
+        {{--<p>Alan Victor Galvão &copy; 2017</p>--}}
+    {{--</div>--}}
+
+{{--</footer>--}}
+
 </body>
 </html>

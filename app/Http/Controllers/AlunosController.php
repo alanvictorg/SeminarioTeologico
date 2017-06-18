@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Aluno;
 use App\Curso;
 use App\Turma;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -13,10 +14,15 @@ class AlunosController extends Controller
 {
     public function index()
     {
+        $paginar = false;
         $cursos = Curso::get();
-        $alunos = Aluno::get();
-
-        return view('alunos.lista', ['alunos' => $alunos, 'cursos' => $cursos]);
+        if (Aluno::count() > 8) {
+            $alunos = Aluno::paginate(8);
+            $paginar = true;
+        } else {
+          $alunos = Aluno::get();
+        }
+        return view('alunos.lista', ['alunos' => $alunos, 'cursos' => $cursos, 'paginar' => $paginar]);
 
     }
 
@@ -95,4 +101,19 @@ class AlunosController extends Controller
 
         return Redirect::to('alunos');
     }
+
+//    public function pdf($id)
+//    {
+//        $turmas = new Turma();
+//        $aluno = Aluno::findOrfail($id);
+//        $turmas = $aluno->turmas;
+//
+//        foreach ($turmas as $turma) {
+//            $id = $turma->curso_id;
+//        }
+//        $curso = Curso::find($id);
+//
+//        $pdf = \PDF::loadview('alunos/pdf', ['aluno' => $aluno, 'turma' => $curso]);
+//        return $pdf->download('historico.pdf');
+//    }
 }
