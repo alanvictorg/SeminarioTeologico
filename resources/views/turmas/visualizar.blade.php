@@ -32,7 +32,7 @@
                                 <td>Média</td>
                                 </thead>
                                 <?php $key = 0; ?>
-                                @foreach ($turma->alunos as $aluno)
+                                @foreach ($alunos as $aluno)
 
 
                                     <tr>

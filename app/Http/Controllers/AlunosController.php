@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Aluno;
 use App\Curso;
 use App\Turma;
-use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -17,13 +16,49 @@ class AlunosController extends Controller
         $paginar = false;
         $cursos = Curso::get();
         if (Aluno::count() > 8) {
-            $alunos = Aluno::paginate(8);
+            $alunos = Aluno::orderBy('matricula')->paginate(8);
             $paginar = true;
         } else {
-          $alunos = Aluno::get();
+            $alunos = Aluno::orderBy('matricula')->get();
         }
         return view('alunos.lista', ['alunos' => $alunos, 'cursos' => $cursos, 'paginar' => $paginar]);
 
+    }
+
+    public function busca(Request $request)
+    {
+        $paginar = false;
+        $count = Aluno::where(function ($query) use ($request) {
+
+            if ($request->has('nome'))
+                $nome = $request->nome;
+            $query->where('nome', "like", "%{$nome}%");
+
+        })
+            ->count();
+
+        if ($count > 8) {
+            $alunos = Aluno::where(function ($query) use ($request) {
+
+                if ($request->has('nome'))
+                    $nome = $request->nome;
+                $query->where('nome', "like", "%{$nome}%");
+
+            })
+                ->paginate(8);
+            $paginar = true;
+        } else {
+            $alunos = Aluno::where(function ($query) use ($request) {
+
+                if ($request->has('nome'))
+                    $nome = $request->nome;
+                $query->where('nome', "like", "%{$nome}%");
+
+            })->get();
+        }
+
+
+        return view('alunos.lista', ['alunos' => $alunos, 'paginar' => $paginar]);
     }
 
     public function create()
@@ -101,6 +136,8 @@ class AlunosController extends Controller
 
         return Redirect::to('alunos');
     }
+
+
 
 //    public function pdf($id)
 //    {

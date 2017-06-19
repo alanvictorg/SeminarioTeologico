@@ -21,18 +21,57 @@ class TurmasController extends Controller
     public function index()
     {
         $paginar = false;
+
         if (Turma::count() > 8) {
             $turmas = Turma::paginate(8);
             $paginar = true;
         } else {
             $turmas = Turma::get();
         }
+
+        return view('turmas.lista', ['turmas' => $turmas, 'paginar' => $paginar]);
+    }
+
+    public function busca(Request $request)
+    {
+        $paginar = false;
+        $count = Turma::where(function ($query) use ($request) {
+
+            if ($request->has('nome'))
+                $nome = $request->nome;
+            $query->where('codigo', "like", "%{$nome}%");
+
+        })
+            ->count();
+
+        if ($count > 8) {
+            $turmas = Turma::where(function ($query) use ($request) {
+
+                if ($request->has('nome'))
+                    $nome = $request->nome;
+                $query->where('codigo', "like", "%{$nome}%");
+
+            })
+                ->paginate(8);
+            $paginar = true;
+        } else {
+            $turmas = Turma::where(function ($query) use ($request) {
+
+                if ($request->has('nome'))
+                    $nome = $request->nome;
+                $query->where('codigo', "like", "%{$nome}%");
+
+            })->get();
+        }
+
+
         return view('turmas.lista', ['turmas' => $turmas, 'paginar' => $paginar]);
     }
 
     public function create()
     {
-        $alunos = Aluno::get();
+
+        $alunos = Aluno::orderBy('nome')->get();
         $cursos = Curso::get();
         $professores = Professore::get();
 
@@ -48,17 +87,18 @@ class TurmasController extends Controller
     public function show($id)
     {
         $turma = Turma::findOrfail($id);
+        $alunos = $turma->alunos()->orderBy('nome')->get();
         $avaliacoes = Avaliacoe::where('turma_id', $id)->orderBy('id')->get();
-        return view('turmas.visualizar', ['turma' => $turma, 'avaliacoes' => $avaliacoes]); //, 'alunos' => $alunos
+        return view('turmas.visualizar', ['turma' => $turma, 'alunos' => $alunos, 'avaliacoes' => $avaliacoes]); //, 'alunos' => $alunos
     }
 
     public function edit($id)
     {
-        $turma = Turma::findOrfail($id);
+        $turmas = Turma::findOrfail($id);
         $cursos = Curso::get();
         $professores = Professore::get();
         $alunos = Aluno::get();
-        return view('turmas.formulario', ['turma' => $turma, 'cursos' => $cursos, 'professores' => $professores, 'alunos' => $alunos]);
+        return view('turmas.formulario', ['turma' => $turmas, 'cursos' => $cursos, 'professores' => $professores, 'alunos' => $alunos]);
     }
 
     public function update($id, Request $request)

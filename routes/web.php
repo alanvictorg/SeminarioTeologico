@@ -36,11 +36,17 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::resource('alunos', 'AlunosController');
 
+    Route::get('pdf/{aluno}', 'AlunosController@pdf');
+
+    Route::post('alunos/busca', 'AlunosController@busca');
+
     Route::resource('cursos', 'CursosController');
 
     Route::resource('turmas', 'TurmasController');
 
     Route::post('turmas/salvarnotas', 'TurmasController@salvarnotas');
+
+    Route::post('turmas/busca', 'TurmasController@busca');
 
     Route::resource('professores', 'ProfessoresController');
 

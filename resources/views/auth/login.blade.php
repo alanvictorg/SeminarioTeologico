@@ -10,7 +10,7 @@
             <div class="panel" style="background-color: rgba(245,245,245,0.2) !important;">
                 <div class="form-top"  style="background-color: rgba(245,245,245,0.2) !important;">
                     <div class="form-top-left">
-                        <h3>Seminário de Teologia</h3>
+                        <h3>Sistema de Gestão</h3>
                         <p>Entre com seu usuário e senha:</p>
                     </div>
                     

@@ -25,9 +25,9 @@
                         @endif
 
                         @if(Request::is('*/edit'))
-                        {!! Form::model($turma, ['method' => 'PATCH', 'url' => 'turmas/'.$turma->id]) !!}
+                            {!! Form::model($turma, ['method' => 'PATCH', 'url' => 'turmas/'.$turma->id]) !!}
                         @else
-                        {!! Form::open(['action' => 'TurmasController@store']) !!}
+                            {!! Form::open(['action' => 'TurmasController@store']) !!}
                         @endif
                         <div class="row">
                             {!! Form::label('codigo','Qual o nome da turma?') !!}
@@ -83,15 +83,16 @@
                         <div class="row perguntas">
                             {!! Form::label('aluno_id','Quais alunos deseja matricular nesta turma?') !!}
                         </div>
-
-                        @foreach($alunos as $aluno)
                             <div class="row">
-                                {!! Form::label('alunos[]', $aluno->nome) !!}
-                                {!! Form::checkbox('alunos[]', $aluno->id)  !!}
-                            </div>
+                        @foreach($alunos as $aluno)
+
+                                <div class="col-md-4 lista-nome">
+                                    {!! Form::label('alunos[]', $aluno->nome) !!}
+                                    {!! Form::checkbox('alunos[]', $aluno->id)  !!}
+                                </div>
+
                         @endforeach
-
-
+                            </div>
                         <div class="row">
                             {!! Form::submit('Salvar', ['class' => 'btn btn-primary margem-top']) !!}
                         </div>

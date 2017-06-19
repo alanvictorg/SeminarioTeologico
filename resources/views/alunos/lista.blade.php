@@ -9,7 +9,12 @@
                     <div class="panel-heading" style="text-align: left;">Alunos
                         <a class="pull-right" href="{{ url('alunos/create') }}">Novo Aluno</a>
                     </div>
-
+                    <div class="campo-busca">
+                        {!! Form::open(['action' => 'AlunosController@busca']) !!}
+                        {!! Form::input('text', 'nome', null, ['class' => 'form-control', 'autofocus', 'placeholder' => 'Buscar pelo nome...' ])  !!}
+                        {!! Form::submit('Buscar', ['class' => 'btn btn-primary margem-top']) !!}
+                        {!! Form::close() !!}
+                    </div>
                     <div class="panel-body">
                         @if(Session::has('mensagem_sucesso'))
                             <div class="alert alert-success">{{Session::get('mensagem_sucesso')}}</div>
@@ -25,14 +30,14 @@
                             <table class="table">
                                 <thead>
                                 <td>Nome</td>
-                                <td>RG</td>
+                                <td>Matrícula</td>
                                 <td>Opções</td>
                                 </thead>
                                 @foreach($alunos as $aluno)
                                     <tr>
                                         <td>{{$aluno->nome}}
                                         </td>
-                                        <td>{{$aluno->rg}}</td>
+                                        <td>{{$aluno->matricula}}</td>
                                         <td>
                                             <a href="/alunos/{{ $aluno->id }}/edit"
                                                class="btn btn-default btn-sm">Editar</a>
@@ -49,9 +54,11 @@
                                     @endforeach
                                     </thead>
                             </table>
+
                             @if($paginar)
                                 {{ $alunos->render() }}
                             @endif
+
                         @endif
                     </div>
                 </div>

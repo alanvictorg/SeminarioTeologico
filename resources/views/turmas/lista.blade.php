@@ -10,6 +10,13 @@
                         <a class="pull-right" href="{{ url('turmas/create') }}">Nova Turma</a>
                     </div>
 
+                    <div class="campo-busca">
+                        {!! Form::open(['action' => 'TurmasController@busca']) !!}
+                        {!! Form::input('text', 'nome', null, ['class' => 'form-control', 'autofocus', 'placeholder' => 'Buscar pelo nome da turma...' ])  !!}
+                        {!! Form::submit('Buscar', ['class' => 'btn btn-primary margem-top']) !!}
+                        {!! Form::close() !!}
+                    </div>
+
                     <div class="panel-body">
                         @if(Session::has('mensagem_sucesso'))
                             <div class="alert alert-success">{{Session::get('mensagem_sucesso')}}</div>
