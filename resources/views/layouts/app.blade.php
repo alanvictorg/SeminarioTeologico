@@ -15,6 +15,8 @@
     <link href="{{ asset('css/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <!-- <link href="{{ asset('css/css/form-elements.css') }}" rel="stylesheet"> -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}"
+          rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="/img/stid.png"/>
     <!-- Scripts -->
     <script>
@@ -123,7 +125,6 @@
                         </li>
 
 
-
                         {{--<li>--}}
                         {{--<a class="accordion-toggle collapsed toggle-switch" data-toggle="collapse"--}}
                         {{--href="#submenu-3">--}}
@@ -160,38 +161,24 @@
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
+@if (!Auth::guest())
 
-{{--<footer class="footer-distributed">--}}
+    <footer class="footer-distributed">
 
-    {{--<div class="footer-right">--}}
+        <div class="footer-right">
 
-        {{--<a href="#"><i class="fa fa-facebook"></i></a>--}}
-        {{--<a href="#"><i class="fa fa-twitter"></i></a>--}}
-        {{--<a href="#"><i class="fa fa-linkedin"></i></a>--}}
-        {{--<a href="#"><i class="fa fa-github"></i></a>--}}
+            <a href="https://www.facebook.com/alanvictorg" target="_blank"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/in/alanvictorgalvao/" target="_blank"><i class="fa fa-linkedin"></i></a>
+            <a href="https://github.com/alanvictorg" target="_blank"><i class="fa fa-github"></i></a>
 
-    {{--</div>--}}
+        </div>
 
-    {{--<div class="footer-left">--}}
+        <div class="footer-center">
+            <p>Alan Victor Galvão &copy; 2017</p>
+        </div>
 
-        {{--<p class="footer-links">--}}
-            {{--<a href="#">Home</a>--}}
-            {{--·--}}
-            {{--<a href="#">Blog</a>--}}
-            {{--·--}}
-            {{--<a href="#">Pricing</a>--}}
-            {{--·--}}
-            {{--<a href="#">About</a>--}}
-            {{--·--}}
-            {{--<a href="#">Faq</a>--}}
-            {{--·--}}
-            {{--<a href="#">Contact</a>--}}
-        {{--</p>--}}
-
-        {{--<p>Alan Victor Galvão &copy; 2017</p>--}}
-    {{--</div>--}}
-
-{{--</footer>--}}
-
+    </footer>
+@endif
 </body>
 </html>
