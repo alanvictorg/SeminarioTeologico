@@ -9,12 +9,16 @@
                     <div class="panel-heading" style="text-align: left;">Alunos
                         <a class="pull-right" href="{{ url('alunos/create') }}">Novo Aluno</a>
                     </div>
+
+                    @if(strlen($alunos) > 3)
                     <div class="campo-busca">
                         {!! Form::open(['action' => 'AlunosController@busca']) !!}
                         {!! Form::input('text', 'nome', null, ['class' => 'form-control', 'autofocus', 'placeholder' => 'Buscar pelo nome...' ])  !!}
                         {!! Form::submit('Buscar', ['class' => 'btn btn-primary margem-top']) !!}
                         {!! Form::close() !!}
                     </div>
+                    @endif
+
                     <div class="panel-body">
                         @if(Session::has('mensagem_sucesso'))
                             <div class="alert alert-success">{{Session::get('mensagem_sucesso')}}</div>

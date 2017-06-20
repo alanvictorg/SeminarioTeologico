@@ -45,6 +45,9 @@ body {
     #wrapper {
         padding-left: 225px;
     }
+    .row-lista {
+        min-height: 554px;
+    }
 }
 
 @media (min-width: 992px) {
@@ -442,7 +445,7 @@ img {
     text-align: left;
     font: normal 16px sans-serif;
     padding: 10px 10px;
-    position: absolute;
+    position: relative;
     right: 0;
     bottom: 0;
     left: 0;
@@ -516,9 +519,18 @@ img {
 /***** Media queries *****/
 
 @media (min-width: 992px) and (max-width: 1199px) {
+    .row-lista {
+        min-height: 1255px;
+    }
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+    .row-lista {
+        min-height: 915px;
+    }
+    .footer-distributed {
+        margin: 0 0 0 45px;
+    }
 }
 
 @media (max-width: 767px) {
@@ -530,6 +542,14 @@ img {
 }
 
 @media (max-width: 415px) {
+
+    .row-lista {
+        min-height: 582px;
+    }
+
+    .footer-distributed {
+        margin: 0 0 0 45px;
+    }
 
     h1, h2 {
         font-size: 32px;
@@ -545,8 +565,25 @@ img {
     .form-cad {
         font-size: 11px;
     }
+
+    .row-lista {
+        min-height: 514px;
+    }
 }
 
+@media (max-width: 320px) {
+    .row-lista {
+        min-height: 520px;
+    }
+
+    .panel-sis {
+        width: 313px;
+    }
+
+    .footer-distributed {
+        width: 334px;
+    }
+}
 /*.tela-login { 
 	background-image: url("/img/background-login.jpeg");
 	background-size: 100%; }*/
