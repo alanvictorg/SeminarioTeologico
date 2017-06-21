@@ -3,11 +3,12 @@
 @section('content')
 
     <div class="container">
-        <div class="row">
+        <div class="row row-lista hist">
             <div class="col-md-10 col-md-offset-2">
                 <div class="panel panel-default panel-sis">
                     <div class="panel-heading" style="text-align: left;">Histórico Escolar
                         <a class="pull-right" href="{{ url('alunos') }}">Voltar</a>
+                        {{--<a class="pull-right" href="/pdf/ {{ $aluno->id }}">Imprimir</a>--}}
                     </div>
 
                     <div class="panel-body">

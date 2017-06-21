@@ -47,6 +47,7 @@ body {
     }
     .row-lista {
         min-height: 554px;
+        margin: 0 !important;
     }
 }
 
@@ -544,11 +545,16 @@ img {
 @media (max-width: 415px) {
 
     .row-lista {
-        min-height: 582px;
+        min-height: 623px;
+    }
+
+    .row-turma {
+        min-height: 594px;
     }
 
     .footer-distributed {
         margin: 0 0 0 45px;
+        width: 393px;
     }
 
     h1, h2 {
@@ -559,6 +565,11 @@ img {
         font-size: 14px;
     }
 
+    .panel-sis {
+        width: 370px;
+
+    }
+
 }
 
 @media (max-width: 375px) {
@@ -566,24 +577,32 @@ img {
         font-size: 11px;
     }
 
+    .panel-sis {
+        width: 365px;
+    }
+
     .row-lista {
-        min-height: 514px;
+        min-height: 625px;
+    }
+
+    .footer-distributed {
+        width: 390px;
     }
 }
 
 @media (max-width: 320px) {
     .row-lista {
-        min-height: 520px;
+        min-height: 620px;
     }
 
     .panel-sis {
-        width: 313px;
+        width: 365px;
     }
 
     .footer-distributed {
-        width: 334px;
+        width: 390px;
     }
 }
-/*.tela-login { 
+/*.tela-login {
 	background-image: url("/img/background-login.jpeg");
 	background-size: 100%; }*/
