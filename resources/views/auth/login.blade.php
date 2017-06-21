@@ -4,9 +4,9 @@
 
 @section('content')
 <div class="tela-login">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2" style="padding-bottom: 50px; padding-top: 45px;">
-            <img src="img/idb-icon.png" style="margin-bottom: 10px;">
+    <div class="row login">
+        <div class="col-md-8 col-md-offset-2" style="">
+            <img src="img/idb-icon.png" class="img-login" style="margin-bottom: 10px; ">
             <div class="panel" style="background-color: rgba(245,245,245,0.2) !important;">
                 <div class="form-top"  style="background-color: rgba(245,245,245,0.2) !important;">
                     <div class="form-top-left">
