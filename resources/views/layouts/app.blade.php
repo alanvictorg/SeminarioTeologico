@@ -24,6 +24,17 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
+    <style type="text/css">
+        #img {
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+       
+        .lista {
+            text-align: left;
+        }
+    </style>
 </head>
 <body>
 <div id="app" style="margin-top: 50px;">
@@ -42,7 +53,7 @@
 
 
                 <a class="navbar-brand titulo-nav" href="{{ url('/home') }}">
-                    {{ config('app.name') }}
+                    Seminário Teológico
                 </a>
 
             </div>
@@ -90,9 +101,15 @@
         <div id="wrapper">
             <div id="sidebar-wrapper">
                 <aside id="sidebar">
+
                     <ul id="sidemenu" class="sidebar-nav">
+                     <div id="img" class="sidebar-header">
+                    
+                    <img src="{{ asset('/img/icone.png') }}" alt="" class="">
+       
+                 </div>
                         <li>
-                            <a href="{{ url('alunos') }}">
+                            <a class="lista" href="{{ url('alunos') }}">
                                 <span class="sidebar-icon"><i class="glyphicon glyphicon-user"></i></span>
                                 <span class="sidebar-title">Alunos</span>
                             </a>
@@ -100,7 +117,7 @@
                         </li>
 
                         <li>
-                            <a href="{{ url('professores') }}">
+                            <a class="lista" href="{{ url('professores') }}">
                                 <span class="sidebar-icon"><i class="glyphicon glyphicon-blackboard"></i></span>
                                 <span class="sidebar-title">Professores</span>
                             </a>
@@ -108,7 +125,7 @@
                         </li>
 
                         <li>
-                            <a href="{{ url('cursos') }}">
+                            <a class="lista" href="{{ url('cursos') }}">
                                 <span class="sidebar-icon"><i class="glyphicon glyphicon-file"></i></span>
                                 <span class="sidebar-title">Cursos</span>
 
@@ -117,7 +134,7 @@
                         </li>
 
                         <li>
-                            <a href="{{ url('turmas') }}">
+                            <a class="lista" href="{{ url('turmas') }}">
                                 <span class="sidebar-icon"><i class="glyphicon glyphicon-tasks"></i></span>
                                 <span class="sidebar-title">Turmas</span>
                             </a>
@@ -161,24 +178,6 @@
 
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}"></script>
-@if (!Auth::guest())
 
-    <footer class="footer-distributed">
-
-        <div class="footer-right">
-
-            <a href="https://www.facebook.com/alanvictorg" target="_blank"><i class="fa fa-facebook"></i></a>
-            <a href="#"><i class="fa fa-twitter"></i></a>
-            <a href="https://www.linkedin.com/in/alanvictorgalvao/" target="_blank"><i class="fa fa-linkedin"></i></a>
-            <a href="https://github.com/alanvictorg" target="_blank"><i class="fa fa-github"></i></a>
-
-        </div>
-
-        <div class="footer-center">
-            <p>Alan Victor Galvão &copy; 2017</p>
-        </div>
-
-    </footer>
-@endif
 </body>
 </html>
