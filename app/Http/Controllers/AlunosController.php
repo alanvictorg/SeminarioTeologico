@@ -2,15 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use App\Aluno;
-use App\Curso;
-use App\Turma;
+use App\Entities\Aluno;
+use App\Entities\Curso;
+use App\Entities\Turma;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+use App\Repositories\AlunoRepository;
 
 class AlunosController extends Controller
 {
+    /**
+     * @var AlunoRepository
+     */
+    protected $repository;
+
+    public function __construct(AlunoRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
+    /**
+     * @return AlunoRepository
+     */
+    public function getRepository()
+    {
+        return $this->repository;
+    }
     public function index()
     {
         $paginar = false;
@@ -63,14 +81,13 @@ class AlunosController extends Controller
 
     public function create()
     {
-        $cursos = Curso::get();
+        $cursos = Curso::all();
         return view('alunos.formulario', ['cursos' => $cursos]);
     }
 
     public function store(Request $request)
     {
-        $aluno = new Aluno();
-
+        $data = $request->all();
         $this->validate($request, [
             'nome' => 'bail|required',
             'filiacao' => 'bail|required',
@@ -82,7 +99,7 @@ class AlunosController extends Controller
             'endereco' => 'bail|required',
         ]);
 
-        $aluno = $aluno->create($request->all());
+        $aluno = $this->getRepository()->create($data);
 
         \Session::flash('mensagem_sucesso', 'Aluno cadastrado com sucesso!');
 
@@ -116,9 +133,9 @@ class AlunosController extends Controller
 
     public function update($id, Request $request)
     {
-        $aluno = Aluno::findOrfail($id);
+        $data = $request->all();
 
-        $aluno->update($request->all());
+        $aluno = $this->getRepository()->update($data, $id);
 
         \Session::flash('mensagem_sucesso', 'Aluno atualizado com sucesso!');
 
@@ -128,9 +145,7 @@ class AlunosController extends Controller
 
     public function destroy($id)
     {
-        $aluno = Aluno::findOrfail($id);
-
-        $aluno->delete();
+        $this->getRepository()->delete($id);
 
         \Session::flash('mensagem_sucesso', 'Aluno deletado com sucesso!');
 

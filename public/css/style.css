@@ -194,7 +194,8 @@ body {
 
 .tela-login {
     background-image: url("img/backgrounds/back.png");
-    background-size: 100% 100%;
+    background-size: 100%;
+    padding-top: 90px;
 }
 
 .login {
@@ -222,7 +223,6 @@ body {
     color: #888;
     line-height: 30px;
     text-align: center;
-
 }
 
 strong {

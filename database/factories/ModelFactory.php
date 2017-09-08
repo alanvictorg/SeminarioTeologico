@@ -23,7 +23,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Aluno::class, function (Faker\Generator $faker) {
+$factory->define(App\Entities\Aluno::class, function (Faker\Generator $faker) {
     return [
         'nome' => $faker->name,
         'filiacao' => $faker->text(10),
@@ -51,3 +51,24 @@ $factory->define(App\Aluno::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\Entities\Professore::class, function (Faker\Generator $faker) {
+    return [
+        'login' => $faker->text(7),
+        'nome' => $faker->name,
+        'email' => $faker->unique()->safeEmail,
+    ];
+});
+
+$factory->define(App\Entities\Disciplina::class, function (Faker\Generator $faker) {
+    return [
+        'nome' => $faker->name,
+        'descricao' => $faker->text(7),
+    ];
+});
+
+$factory->define(App\Entities\Curso::class, function (Faker\Generator $faker) {
+    return [
+        'nome' => $faker->name,
+        'descricao' => $faker->text(7),
+    ];
+});

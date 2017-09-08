@@ -2,13 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Professore;
+use App\Entities\Professore;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
-
+use App\Repositories\ProfessoreRepository;
 
 class ProfessoresController extends Controller
 {
+    /**
+     * @var ProfessoreRepository
+     */
+    protected $repository;
+
+    public function __construct(ProfessoreRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
+    /**
+     * @return ProfessoreRepository
+     */
+    public function getRepository()
+    {
+        return $this->repository;
+    }
+
     public function index()
     {
         $paginar = false;
@@ -29,8 +47,6 @@ class ProfessoresController extends Controller
 
     public function store(Request $request)
     {
-        $professor = new Professore();
-
         $this->validate($request, [
             'nome' => 'bail|required',
             'email' => 'bail|required',
@@ -38,7 +54,7 @@ class ProfessoresController extends Controller
 
         ]);
 
-        $professor = $professor->create($request->all());
+        $professor = $this->getRepository()->create($request->all());
 
         \Session::flash('mensagem_sucesso', 'Professor cadastrado com sucesso!');
 
@@ -47,9 +63,7 @@ class ProfessoresController extends Controller
 
     public function destroy($id)
     {
-        $professor = Professore::findOrfail($id);
-
-        $professor->delete();
+        $this->getRepository()->delete($id);
 
         \Session::flash('mensagem_sucesso', 'Professor deletado com sucesso!');
 

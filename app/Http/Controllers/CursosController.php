@@ -2,13 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Curso;
+use App\Entities\Curso;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+use App\Repositories\CursoRepository;
 
 class CursosController extends Controller
 {
+    /**
+     * @var CursoRepository
+     */
+    protected $repository;
+
+    public function __construct(CursoRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
+    /**
+     * @return CursoRepository
+     */
+    public function getRepository()
+    {
+        return $this->repository;
+    }
     public function index()
     {
         $cursos = Curso::get();
@@ -25,14 +43,12 @@ class CursosController extends Controller
 
     public function store(Request $request)
     {
-        $curso = new Curso();
-
         $this->validate($request,[
             'nome' => 'bail|required',
             'descricao' => 'bail|required'
         ]);
 
-        $curso = $curso->create($request->all());
+        $curso = $this->getRepository()->create($request->all());
 
         \Session::flash('mensagem_sucesso', 'Curso cadastrado com sucesso!');
 
@@ -41,9 +57,7 @@ class CursosController extends Controller
 
     public function destroy($id)
     {
-        $curso = Curso::findOrfail($id);
-
-        $curso->delete();
+        $this->getRepository()->delete($id);
 
         \Session::flash('mensagem_sucesso', 'Curso deletado!');
 

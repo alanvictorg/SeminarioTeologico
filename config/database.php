@@ -20,7 +20,7 @@ return [
     |
     */
 
-    'default' => 'pgsql',
+    'default' => 'mysql',
 
 //env('DB_CONNECTION', 'mysql')
 

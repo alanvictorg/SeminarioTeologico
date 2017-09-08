@@ -11,20 +11,6 @@
 |
 */
 
-Route::group(array('prefix' => 'api'), function () {
-
-    Route::get('/', function () {
-        return response()->json(['message' => 'Jobs API', 'status' => 'Connected']);;
-    });
-
-    Route::resource('alunos', 'AlunosController');
-
-});
-
-Route::get('/', function () {
-    return redirect('api');
-});
-
 Route::group(['middleware' => 'web'], function () {
     Route::get('/', function () {
         if (Auth::guest()) {

@@ -2,21 +2,65 @@
 
 namespace App\Http\Controllers;
 
-use App\Aluno;
-use App\Avaliacoe;
-use App\Curso;
-use App\Professore;
-use App\Turma;
+use App\Entities\Aluno;
+use App\Entities\Avaliacoe;
+use App\Entities\Curso;
+use App\Entities\Professore;
+use App\Entities\Turma;
+use App\Entities\AlunoTurma;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
+use App\Repositories\TurmaRepository;
+use App\Repositories\AlunoTurmaRepository;
+use App\Repositories\AvaliacoeRepository;
 
 class TurmasController extends Controller
 {
-    private $turma;
-    private $aluno;
+    /**
+     * @var TurmaRepository
+     */
+    protected $repository;
+
+    /**
+     * @var AlunoTurmaRepository
+     */
+    protected $alunoTurmaRepository;
+
+    /**
+     * @var AvaliacoeRepository
+     */
+    protected $avaliacaoRepository;
+
+    public function __construct(TurmaRepository $repository,
+                                AlunoTurmaRepository $alunoTurmaRepository,
+                                AvaliacoeRepository $avaliacoeRepository
+    )
+    {
+        $this->repository = $repository;
+        $this->alunoTurmaRepository = $alunoTurmaRepository;
+        $this->avaliacaoRepository = $avaliacoeRepository;
+    }
+
+    /**
+     * @return TurmaRepository
+     */
+    public function getRepository()
+    {
+        return $this->repository;
+    }
+
+    public function getAlunoTurmaRepository()
+    {
+        return $this->alunoTurmaRepository;
+    }
+
+    public function getAvaliacaoRepository()
+    {
+        return $this->avaliacaoRepository;
+    }
 
     public function index()
     {
@@ -72,8 +116,8 @@ class TurmasController extends Controller
     {
 
         $alunos = Aluno::orderBy('nome')->get();
-        $cursos = Curso::get();
-        $professores = Professore::get();
+        $cursos = Curso::orderBy('nome')->pluck('nome', 'id');
+        $professores = Professore::orderBy('nome')->pluck('nome', 'id');
 
         if (strlen($alunos) < 3 || strlen($cursos) < 3 || strlen($professores) < 3) {
             \Session::flash('mensagem_info', 'É necessário cadastrar alunos, cursos e professores para formar turma');
@@ -114,9 +158,8 @@ class TurmasController extends Controller
 
     public function store(Request $request)
     {
-        $next_sequence = \DB::select("select nextval('turmas_id_seq')");
-        $next_seq = intval($next_sequence['0']->nextval);
 
+        $data = $request->all();
         $this->validate($request, [
             'codigo' => 'bail|required',
             'curso_id' => 'bail|required',
@@ -126,34 +169,15 @@ class TurmasController extends Controller
             'hr_aula' => 'bail|required'
         ]);
 
-        DB::table('turmas')->insert(
-            ['id' => $next_seq, 'curso_id' => $request->curso_id, 'professor_id' => $request->professor_id, 'codigo' => $request->codigo, 'turno' => $request->turno,
-                'credito' => $request->credito, 'hr_aula' => $request->hr_aula, 'ano' => $request->ano,
-                'created_at' => \Carbon\Carbon::now(),
-                'updated_at' => \Carbon\Carbon::now()]
-        );
+        $turma = $this->getRepository()->create($data);
 
+        foreach ($data['alunos'] as $dados) {
+            $data['aluno_id'] = $dados;
+            $data['turma_id'] = $turma->id;
+            $alunoturma = $this->getAlunoTurmaRepository()->create($data);
 
-        foreach ($request->alunos as $dados) {
+            $this->getAvaliacaoRepository()->create($data);
 
-            DB::table('aluno_turma')->insert(
-                ['aluno_id' => $dados,
-                    'turma_id' => $next_seq,
-                    'created_at' => \Carbon\Carbon::now(),
-                    'updated_at' => \Carbon\Carbon::now()]
-            );
-
-            DB::table('avaliacoes')->insert(
-                ['aluno_id' => $dados,
-                    'turma_id' => $next_seq,
-                    'nota1' => 0,
-                    'nota2' => 0,
-                    'nota3' => 0,
-                    'media' => 0,
-                    'created_at' => \Carbon\Carbon::now(),
-                    'updated_at' => \Carbon\Carbon::now()
-                ]
-            );
         }
 
         \Session::flash('mensagem_sucesso', 'Turma cadastrada com sucesso!');

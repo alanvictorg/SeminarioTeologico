@@ -13,6 +13,7 @@ namespace Silex\Tests;
 
 use Fig\Link\GenericLinkProvider;
 use Fig\Link\Link;
+use PHPUnit\Framework\TestCase;
 use Silex\Application;
 use Silex\ControllerCollection;
 use Silex\Api\ControllerProviderInterface;
@@ -24,13 +25,14 @@ use Symfony\Component\HttpFoundation\StreamedResponse;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Symfony\Component\EventDispatcher\Event;
 use Symfony\Component\Routing\RouteCollection;
+use Symfony\Component\WebLink\HttpHeaderSerializer;
 
 /**
  * Application test cases.
  *
  * @author Igor Wiedler <igor@wiedler.ch>
  */
-class ApplicationTest extends \PHPUnit_Framework_TestCase
+class ApplicationTest extends TestCase
 {
     public function testMatchReturnValue()
     {
@@ -659,6 +661,10 @@ class ApplicationTest extends \PHPUnit_Framework_TestCase
 
     public function testWebLinkListener()
     {
+        if (!class_exists(HttpHeaderSerializer::class)) {
+            self::markTestSkipped('Symfony WebLink component is required.');
+        }
+
         $app = new Application();
 
         $app->get('/', function () {

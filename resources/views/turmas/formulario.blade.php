@@ -67,18 +67,14 @@
                         <div class="row perguntas">
                             {!! Form::label('curso_id','Qual o curso?') !!}
                         </div>
-                        @foreach($cursos as $curso)
-                            {!! Form::label('curso_id', $curso->nome) !!}
-                            {!! Form::radio('curso_id', $curso->id)  !!}
-                        @endforeach
+                            {!! Form::select('curso_id',$cursos,null ,["class" => "form-control", 'id'=>'curso_id'
+                            ,'required','placeholder'=>"Escolha um curso",'required'])  !!}
 
                         <div class="row perguntas">
                             {!! Form::label('professor_id','Professor responsável?') !!}
                         </div>
-                        @foreach($professores as $professor)
-                            {!! Form::label('professor_id', $professor->nome) !!}
-                            {!! Form::radio('professor_id', $professor->id)  !!}
-                        @endforeach
+                            {!! Form::select('professor_id',$professores,null ,["class" => "form-control", 'id'=>'professor_id'
+                                 ,'required','placeholder'=>"Escolha um professor",'required'])  !!}
 
                         <div class="row perguntas">
                             {!! Form::label('aluno_id','Quais alunos deseja matricular nesta turma?') !!}

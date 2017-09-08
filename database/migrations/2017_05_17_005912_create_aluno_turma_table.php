@@ -13,7 +13,7 @@ class CreateAlunoTurmaTable extends Migration
      */
     public function up()
     {
-        Schema::create('aluno_turma', function (Blueprint $table) {
+        Schema::create('aluno_turmas', function (Blueprint $table) {
             $table->integer('aluno_id')->unsigned();
             $table->foreign('aluno_id')->
             references('id')->
@@ -38,6 +38,6 @@ class CreateAlunoTurmaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('aluno_turma');
+        Schema::dropIfExists('aluno_turmas');
     }
 }

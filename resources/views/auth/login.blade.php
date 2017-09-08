@@ -1,8 +1,43 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="{{ config('app.locale') }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-@section('title', 'Seminário')
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-@section('content')
+    <title>{{ config('app.name', 'STID') }}</title>
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- <link href="{{ asset('css/css/form-elements.css') }}" rel="stylesheet"> -->
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}"
+          rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="/img/stid.png"/>
+    <!-- Scripts -->
+    <script>
+        window.Laravel = {!! json_encode([
+            'csrfToken' => csrf_token(),
+        ]) !!};
+    </script>
+    <style type="text/css">
+        #img {
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+       
+        .lista {
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
 <div class="tela-login">
     <div class="row login">
         <div class="col-md-8 col-md-offset-2" style="">
@@ -74,4 +109,5 @@
         </div>
     </div>
 </div>
-@endsection
+</body>
+</html>
