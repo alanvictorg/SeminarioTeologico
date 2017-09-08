@@ -1,7 +1,5 @@
 /node_modules
 /public/storage
-/public/upload/nfe/!.gitkeep
-/public/upload/nfe/*
 /storage/*.key
 /vendor
 /.idea

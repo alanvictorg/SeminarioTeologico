@@ -1911,7 +1911,7 @@
       <workItem from="1499905835807" duration="1615000" />
       <workItem from="1499907499821" duration="173000" />
       <workItem from="1504804859012" duration="15779000" />
-      <workItem from="1504839553641" duration="718000" />
+      <workItem from="1504839553641" duration="1043000" />
     </task>
     <task id="LOCAL-00001" summary="Correções de rotas e layout">
       <created>1489794982662</created>
@@ -1945,7 +1945,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20494000" />
+    <option name="totallyTimeSpent" value="20819000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2033,13 +2033,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="619" column="0" lean-forward="false" selection-start-line="619" selection-start-column="0" selection-end-line="619" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -2351,6 +2344,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
