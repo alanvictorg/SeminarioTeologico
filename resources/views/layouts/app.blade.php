@@ -18,12 +18,17 @@
     <link href="{{ asset('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css') }}"
           rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="/img/stid.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.8.0/sweetalert2.css" type="text/css">
+    <script src="{{ asset('js/sweetalert.min.js') }}"></script>
+    <link href="{{ asset("css/sweetalert.css") }}" rel="stylesheet" type="text/css" />
+
     <!-- Scripts -->
     <script>
         window.Laravel = {!! json_encode([
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
+
     <style type="text/css">
         #img {
             text-align: center;

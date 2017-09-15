@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Entities\Aluno;
 use App\Entities\Curso;
 use App\Entities\Turma;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
@@ -101,6 +102,11 @@ class AlunosController extends Controller
 
         $aluno = $this->getRepository()->create($data);
 
+        $dataUser['name'] = $data['nome'];
+        $dataUser['email'] = $data['email'];
+        $dataUser['password'] = bcrypt(123456);
+
+        $user = User::create($dataUser);
         \Session::flash('mensagem_sucesso', 'Aluno cadastrado com sucesso!');
 
         return Redirect::to('alunos/create');

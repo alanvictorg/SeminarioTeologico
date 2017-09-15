@@ -63,6 +63,11 @@
                                 {!! Form::input('text', 'escolaridade', null, ['class' => 'form-control margem-top', 'autofocus', 'placeholder' => 'Escolaridade' ])  !!}
                             </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                {!! Form::input('email', 'email',null, ['class' => 'form-control margem-top', 'autofocus', 'placeholder' => 'Email' ])  !!}
+                            </div>
+                        </div>
                         {!! Form::input('text', 'endereco', null, ['class' => 'form-control margem-top', 'autofocus', 'placeholder' => 'Endereço' ])  !!}
                         <div class="row">
                             <div class="col-md-4">
@@ -109,7 +114,6 @@
                         {!! Form::radio('comunhao_igreja', 'nao')  !!}
 
 
-
                         <div class="row">
                             {!! Form::submit('Salvar', ['class' => 'btn btn-primary margem-top']) !!}
                         </div>
@@ -119,4 +123,29 @@
             </div>
         </div>
     </div>
+    <script>
+        $('document').ready(function () {
+            swal({
+                title: 'What is your name?',
+                input: 'text',
+                inputPlaceholder: 'Your name or nickname',
+                showCancelButton: true,
+                inputValidator: function (value) {
+                    return new Promise(function (resolve, reject) {
+                        if (value) {
+                            resolve()
+                        } else {
+                            reject('You need to write something!')
+                        }
+                    })
+                }
+            }).then(function (name) {
+                swal({
+                    type: 'success',
+                    html: 'Hi, ' + name
+                })
+            })
+        });
+
+    </script>
 @endsection
