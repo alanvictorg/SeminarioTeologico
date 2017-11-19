@@ -105,6 +105,7 @@ class AlunosController extends Controller
         $dataUser['name'] = $data['nome'];
         $dataUser['email'] = $data['email'];
         $dataUser['password'] = bcrypt(123456);
+        $dataUser['api_token'] = str_random(60);
 
         $user = User::create($dataUser);
         \Session::flash('mensagem_sucesso', 'Aluno cadastrado com sucesso!');

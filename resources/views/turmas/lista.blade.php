@@ -45,7 +45,7 @@
                                     <tr>
                                         <td>{{$turma->codigo}}</td>
                                         <td>{{$turma->curso->nome}}</td>
-                                        <td>{{$turma->professore->nome}}</td>
+                                        <td>{{$turma->professor->nome}}</td>
                                         <td>
                                             <a href="/turmas/{{ $turma->id }}/edit"
                                                class="btn btn-default btn-sm">Editar</a>

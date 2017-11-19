@@ -124,28 +124,7 @@
         </div>
     </div>
     <script>
-        $('document').ready(function () {
-            swal({
-                title: 'What is your name?',
-                input: 'text',
-                inputPlaceholder: 'Your name or nickname',
-                showCancelButton: true,
-                inputValidator: function (value) {
-                    return new Promise(function (resolve, reject) {
-                        if (value) {
-                            resolve()
-                        } else {
-                            reject('You need to write something!')
-                        }
-                    })
-                }
-            }).then(function (name) {
-                swal({
-                    type: 'success',
-                    html: 'Hi, ' + name
-                })
-            })
-        });
+
 
     </script>
 @endsection

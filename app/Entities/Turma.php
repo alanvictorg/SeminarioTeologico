@@ -25,7 +25,7 @@ class Turma extends Model implements Transformable
         return $this->belongsTo(Curso::class);
     }
 
-    public function professore()
+    public function professor()
     {
         return $this->belongsTo(Professore::class);
     }

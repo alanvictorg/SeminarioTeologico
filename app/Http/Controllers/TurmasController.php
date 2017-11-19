@@ -72,7 +72,6 @@ class TurmasController extends Controller
         } else {
             $turmas = Turma::get();
         }
-
         return view('turmas.lista', ['turmas' => $turmas, 'paginar' => $paginar]);
     }
 

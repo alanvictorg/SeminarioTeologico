@@ -15,4 +15,8 @@ class AlunoTurma extends Model implements Transformable
         'turma_id',
     ];
 
+	public function turma()
+	{
+		return $this->belongsTo(Turma::class);
+	}
 }
