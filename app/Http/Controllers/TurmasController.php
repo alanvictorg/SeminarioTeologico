@@ -138,8 +138,8 @@ class TurmasController extends Controller
     public function edit($id)
     {
         $turmas = Turma::findOrfail($id);
-        $cursos = Curso::get();
-        $professores = Professore::get();
+        $cursos = Curso::orderBy('nome')->pluck('nome', 'id');
+        $professores = Professore::orderBy('nome')->pluck('nome', 'id');
         $alunos = Aluno::get();
         return view('turmas.formulario', ['turma' => $turmas, 'cursos' => $cursos, 'professores' => $professores, 'alunos' => $alunos]);
     }

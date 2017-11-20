@@ -102,6 +102,7 @@ class AlunosController extends Controller
 
         $aluno = $this->getRepository()->create($data);
 
+        $dataUser['id'] = $aluno->id;
         $dataUser['name'] = $data['nome'];
         $dataUser['email'] = $data['email'];
         $dataUser['password'] = bcrypt(123456);

@@ -32,7 +32,7 @@ class Turma extends Model implements Transformable
 
     public function alunos()
     {
-        return $this->belongsToMany(Aluno::class);
+        return $this->belongsToMany('App\Entities\Aluno', 'aluno_turmas', 'aluno_id', 'turma_id');
     }
 
     public function avaliacoes()

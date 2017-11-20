@@ -67,28 +67,30 @@
                         <div class="row perguntas">
                             {!! Form::label('curso_id','Qual o curso?') !!}
                         </div>
-                            {!! Form::select('curso_id',$cursos,null ,["class" => "form-control", 'id'=>'curso_id'
-                            ,'required','placeholder'=>"Escolha um curso",'required'])  !!}
+                        {!! Form::select('curso_id',$cursos,null ,["class" => "form-control", 'id'=>'curso_id'
+                        ,'required','placeholder'=>"Escolha um curso",'required'])  !!}
 
                         <div class="row perguntas">
                             {!! Form::label('professor_id','Professor responsável?') !!}
                         </div>
-                            {!! Form::select('professor_id',$professores,null ,["class" => "form-control", 'id'=>'professor_id'
-                                 ,'required','placeholder'=>"Escolha um professor",'required'])  !!}
+                        {!! Form::select('professor_id',$professores,null ,["class" => "form-control", 'id'=>'professor_id'
+                             ,'required','placeholder'=>"Escolha um professor",'required'])  !!}
 
                         <div class="row perguntas">
                             {!! Form::label('aluno_id','Quais alunos deseja matricular nesta turma?') !!}
                         </div>
-                            <div class="row">
-                        @foreach($alunos as $aluno)
-
+                        <div class="row">
+                            @foreach($alunos as $aluno)
+                                <?php $uri = $_SERVER['REQUEST_URI']; ?>
                                 <div class="col-md-4 lista-nome">
                                     {!! Form::label('alunos[]', $aluno->nome) !!}
-                                    {!! Form::checkbox('alunos[]', $aluno->id)  !!}
+                                    @if($uri == '/turmas/create')
+                                        {!! Form::checkbox('alunos[]', $aluno->id)  !!}
+                                    @endif
                                 </div>
 
-                        @endforeach
-                            </div>
+                            @endforeach
+                        </div>
                         <div class="row">
                             {!! Form::submit('Salvar', ['class' => 'btn btn-primary margem-top']) !!}
                         </div>
